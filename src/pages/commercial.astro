@@ -1,0 +1,347 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeader from "@/components/sections/PageHeader.astro";
+import Testimonials from "@/components/sections/Testimonials.astro";
+import CTA from "@/components/sections/CTA.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG, TESTIMONIALS } from "@/lib/constants";
+import {
+  Flame,
+  Clock,
+  CheckCircle,
+  Truck,
+  Package,
+  Shield,
+  Phone,
+  UtensilsCrossed,
+  Building2,
+  CalendarDays,
+} from "lucide-astro";
+---
+
+<BaseLayout
+  title="Commercial Firewood Supply Brisbane | Restaurants and Pizzerias | Quickfire Firewood"
+  description="Reliable commercial firewood supply for Brisbane and Gold Coast restaurants, pizzerias and BBQ venues. Consistent quality Western Ironbark with regular delivery schedules."
+  keywords={[
+    "commercial firewood Brisbane",
+    "restaurant firewood supply",
+    "pizzeria firewood Gold Coast",
+    "bulk firewood commercial",
+    "BBQ restaurant wood supply",
+    "wholesale firewood Queensland",
+  ]}
+>
+  <PageHeader
+    title="Commercial Firewood Supply"
+    subtitle="Reliable premium Ironbark for restaurants, pizzerias and commercial kitchens"
+    image="/images/truck-loading-yard-operations.jpg"
+  />
+
+  <!-- Intro -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-8">
+        Firewood You Can Count On
+      </h2>
+
+      <div class="prose prose-lg max-w-none text-base-content/80 text-center">
+        <p>
+          When wood-fired cooking is central to your business, you cannot afford inconsistent
+          firewood. Green wood that will not burn properly. Deliveries that do not arrive when
+          promised. Quality that varies from order to order.
+        </p>
+        <p>
+          At Quickfire Firewood, we understand what commercial kitchens need:{" "}
+          <strong>
+            consistent quality, reliable supply, and firewood that performs exactly as expected,
+            every single time
+          </strong>.
+        </p>
+        <p>
+          We supply premium Western Ironbark to restaurants, pizzerias, BBQ venues, and
+          commercial kitchens throughout Brisbane and the Gold Coast.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Why Ironbark for Commercial -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Why Commercial Kitchens Choose Ironbark
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          {
+            icon: Flame,
+            title: "Consistent Heat Output",
+            description:
+              "Reliable, predictable heat output helps your kitchen produce the same excellent results service after service.",
+          },
+          {
+            icon: CheckCircle,
+            title: "Professional-Grade Performance",
+            description:
+              "Intense heat for pizza ovens (400-500 deg C), long-lasting coals for chargrills, clean burn with minimal smoke.",
+          },
+          {
+            icon: Clock,
+            title: "Reliable Coaling",
+            description:
+              "Dense, long-lasting coals maintain consistent temperatures through busy service periods.",
+          },
+          {
+            icon: Shield,
+            title: "Clean Burning",
+            description:
+              "Properly seasoned Ironbark burns cleanly, keeping your kitchen environment professional.",
+          },
+        ].map(({ icon: Icon, title, description }) => (
+          <div class="text-center">
+            <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Icon class="w-8 h-8 text-accent" />
+            </div>
+            <h3 class="font-heading text-lg font-semibold text-primary mb-2">{title}</h3>
+            <p class="text-base-content/70 text-sm">{description}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- What We Offer -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        What We Offer Commercial Clients
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {[
+          {
+            icon: CalendarDays,
+            title: "Regular Supply Agreements",
+            description:
+              "We work with you to establish a delivery schedule that matches your consumption. Weekly, fortnightly, or monthly - whatever keeps your woodpile stocked without wasting storage space.",
+          },
+          {
+            icon: Package,
+            title: "Consistent Sizing",
+            description:
+              "We split your firewood to the same specifications every order. Whether you need small splits for pizza ovens or medium pieces for offset smokers, you will receive consistently sized wood that fits your equipment perfectly.",
+          },
+          {
+            icon: Truck,
+            title: "Priority Delivery",
+            description:
+              "Commercial accounts receive priority scheduling for deliveries. We understand that running out of firewood means you cannot serve your customers.",
+          },
+          {
+            icon: Shield,
+            title: "Quality Guarantee",
+            description:
+              "Every delivery meets our standards for seasoning and quality. If you are ever unsatisfied with a delivery, we will make it right.",
+          },
+        ].map(({ icon: Icon, title, description }) => (
+          <div class="bg-base-200 rounded-lg p-6 lg:p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <Icon class="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h3 class="font-heading text-xl font-semibold text-primary mb-2">{title}</h3>
+                <p class="text-base-content/70">{description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-base-content/60 mt-8 italic">
+        Regular commercial clients benefit from bulk pricing that reflects the ongoing
+        partnership. Contact us to discuss pricing structures that work for your volume.
+      </p>
+    </Container>
+  </section>
+
+  <!-- Industries We Serve -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Industries We Serve
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            icon: UtensilsCrossed,
+            title: "Pizza Restaurants",
+            description:
+              "From artisan pizza bars to high-volume pizzerias, we supply the consistent, high-heat Ironbark that wood-fired pizza demands.",
+          },
+          {
+            icon: Flame,
+            title: "BBQ and Smokehouse Venues",
+            description:
+              "Low-and-slow smoking requires firewood you can trust for 12+ hour cooks. Ironbark's consistent burn rate and clean smoke make it ideal.",
+          },
+          {
+            icon: UtensilsCrossed,
+            title: "Chargrill Restaurants",
+            description:
+              "Steak houses and chargrill venues rely on intense heat and quality coals. Ironbark delivers both.",
+          },
+          {
+            icon: Building2,
+            title: "Hotels and Resorts",
+            description:
+              "Outdoor fire features, restaurants, and event spaces - we supply hospitality venues with reliable firewood.",
+          },
+          {
+            icon: UtensilsCrossed,
+            title: "Caterers and Event Companies",
+            description:
+              "Large events require large quantities of reliable firewood. We can supply bulk orders for catered events and functions.",
+          },
+          {
+            icon: UtensilsCrossed,
+            title: "Bakeries",
+            description:
+              "Traditional wood-fired ovens for bread and pastries need consistent heat. Ironbark provides the sustained high temperatures required.",
+          },
+        ].map(({ icon: Icon, title, description }) => (
+          <div class="bg-base-100 rounded-lg p-6">
+            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+              <Icon class="w-6 h-6 text-accent" />
+            </div>
+            <h3 class="font-heading text-lg font-semibold text-primary mb-2">{title}</h3>
+            <p class="text-base-content/70 text-sm">{description}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Our Commitment -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Our Commitment to Commercial Clients
+      </h2>
+
+      <div class="space-y-6">
+        {[
+          {
+            title: "Reliability",
+            description:
+              "We deliver when we say we will. Your business depends on having firewood available, and we take that responsibility seriously.",
+          },
+          {
+            title: "Consistency",
+            description:
+              "Same quality, same sizing, same performance - every delivery. You should not have to adjust your cooking process based on variable firewood.",
+          },
+          {
+            title: "Communication",
+            description:
+              "If anything affects your delivery schedule, we will let you know in advance. Clear communication is the foundation of a good business relationship.",
+          },
+          {
+            title: "Flexibility",
+            description:
+              "Need an extra delivery? Running a special event? We work with you to accommodate the changing demands of commercial food service.",
+          },
+        ].map((item) => (
+          <div class="flex items-start gap-4">
+            <div class="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+              <CheckCircle class="w-4 h-4 text-accent" />
+            </div>
+            <div>
+              <h3 class="font-semibold text-primary">{item.title}</h3>
+              <p class="text-base-content/70">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Getting Started -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Getting Started
+      </h2>
+
+      <p class="text-lg text-base-content/70 text-center mb-8">
+        Setting up a commercial account is straightforward:
+      </p>
+
+      <div class="space-y-6 max-w-xl mx-auto">
+        {[
+          {
+            step: "1",
+            title: "Contact us",
+            description: `Call ${SITE_CONFIG.phone} or email ${SITE_CONFIG.email}`,
+          },
+          {
+            step: "2",
+            title: "Discuss your needs",
+            description: "We will talk through your volume, sizing requirements, and delivery schedule",
+          },
+          {
+            step: "3",
+            title: "Trial order",
+            description: "Start with a trial delivery to confirm our Ironbark meets your standards",
+          },
+          {
+            step: "4",
+            title: "Ongoing supply",
+            description: "Establish a regular delivery schedule that keeps your kitchen stocked",
+          },
+        ].map((item) => (
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center flex-shrink-0 font-heading font-bold">
+              {item.step}
+            </div>
+            <div>
+              <h3 class="font-semibold text-primary">{item.title}</h3>
+              <p class="text-base-content/70">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Testimonials -->
+  <Testimonials
+    title="What Commercial Clients Say"
+    testimonials={TESTIMONIALS.slice(0, 1)}
+  />
+
+  <!-- CTA -->
+  <CTA
+    headline="Ready to Discuss Commercial Supply?"
+    description="Contact us to discuss your commercial firewood requirements. We'll create a supply arrangement that keeps your kitchen running smoothly."
+    primaryCTA={{ text: `Call ${SITE_CONFIG.phone}`, href: SITE_CONFIG.phoneLink }}
+    secondaryCTA={{ text: "Email Us", href: SITE_CONFIG.emailLink }}
+    variant="dark"
+  />
+
+  <!-- Related Links -->
+  <section class="py-12 bg-base-100">
+    <Container>
+      <h3 class="font-heading text-xl font-semibold text-primary text-center mb-6">Related</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/firewood/pizza-ovens" class="btn btn-outline btn-sm">
+          Pizza Oven Specifications
+        </a>
+        <a href="/firewood/bbq" class="btn btn-outline btn-sm">BBQ and Smoking</a>
+        <a href="/about" class="btn btn-outline btn-sm">About Our Family Business</a>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

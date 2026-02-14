@@ -1,0 +1,175 @@
+---
+import { Phone, Mail, MapPin } from "lucide-astro";
+import { SITE_CONFIG, NAV_LINKS, SERVICE_AREAS } from "@/lib/constants";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-neutral text-neutral-content">
+  <!-- Main footer content -->
+  <div class="container mx-auto px-4 py-12 lg:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <!-- Company info -->
+      <div class="lg:col-span-1">
+        <a href="/" class="inline-block mb-4">
+          <img
+            src="/images/logo-transparent.png"
+            alt="Quickfire Firewood"
+            class="h-16 w-auto brightness-0 invert"
+            width="64"
+            height="64"
+          />
+        </a>
+        <p class="text-neutral-content/80 mb-4">
+          Family-owned supplier of premium Western Ironbark firewood serving Brisbane and the Gold Coast.
+        </p>
+        <div class="space-y-2">
+          <a
+            href={SITE_CONFIG.phoneLink}
+            class="flex items-center gap-2 hover:text-warning transition-colors"
+          >
+            <Phone class="w-4 h-4 flex-shrink-0" />
+            <span>{SITE_CONFIG.phone}</span>
+          </a>
+          <a
+            href={SITE_CONFIG.emailLink}
+            class="flex items-center gap-2 hover:text-warning transition-colors"
+          >
+            <Mail class="w-4 h-4 flex-shrink-0" />
+            <span>{SITE_CONFIG.email}</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div>
+        <h3 class="font-heading text-lg font-semibold mb-4">Firewood Products</h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="/firewood/pizza-ovens"
+              class="text-neutral-content/80 hover:text-warning transition-colors"
+            >
+              Pizza Oven Firewood
+            </a>
+          </li>
+          <li>
+            <a
+              href="/firewood/fireplaces"
+              class="text-neutral-content/80 hover:text-warning transition-colors"
+            >
+              Fireplace Firewood
+            </a>
+          </li>
+          <li>
+            <a
+              href="/firewood/bbq"
+              class="text-neutral-content/80 hover:text-warning transition-colors"
+            >
+              BBQ and Smoking Wood
+            </a>
+          </li>
+          <li>
+            <a
+              href="/firewood/fire-pits"
+              class="text-neutral-content/80 hover:text-warning transition-colors"
+            >
+              Fire Pit Firewood
+            </a>
+          </li>
+          <li>
+            <a
+              href="/commercial"
+              class="text-neutral-content/80 hover:text-warning transition-colors"
+            >
+              Commercial Supply
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h3 class="font-heading text-lg font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="/order"
+              class="text-neutral-content/80 hover:text-warning transition-colors"
+            >
+              Order Firewood
+            </a>
+          </li>
+          <li>
+            <a
+              href="/about"
+              class="text-neutral-content/80 hover:text-warning transition-colors"
+            >
+              About Us
+            </a>
+          </li>
+          <li>
+            <a
+              href="/contact"
+              class="text-neutral-content/80 hover:text-warning transition-colors"
+            >
+              Contact
+            </a>
+          </li>
+          <li>
+            <a
+              href="/blog"
+              class="text-neutral-content/80 hover:text-warning transition-colors"
+            >
+              Blog
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Service areas -->
+      <div>
+        <h3 class="font-heading text-lg font-semibold mb-4">Service Areas</h3>
+        <div class="flex items-start gap-2 mb-3">
+          <MapPin class="w-4 h-4 flex-shrink-0 mt-1" />
+          <span class="text-neutral-content/80">Brisbane and Gold Coast, QLD</span>
+        </div>
+        <ul class="grid grid-cols-2 gap-1 text-sm text-neutral-content/70">
+          {SERVICE_AREAS.slice(0, 8).map((area) => <li>{area}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-neutral-content/10">
+    <div class="container mx-auto px-4 py-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-neutral-content/60">
+        <p>
+          &copy; {currentYear} {SITE_CONFIG.name}. All rights reserved.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="/privacy-policy" class="hover:text-neutral-content transition-colors">
+            Privacy Policy
+          </a>
+          <span>|</span>
+          <a href="/terms-of-service" class="hover:text-neutral-content transition-colors">
+            Terms of Service
+          </a>
+        </div>
+      </div>
+
+      <!-- Platform21 attribution -->
+      <div class="mt-4 pt-4 border-t border-neutral-content/10 text-center">
+        <a
+          href="https://platform21.com.au"
+          target="_blank"
+          rel="noopener"
+          class="text-xs text-neutral-content/40 hover:text-neutral-content/60 transition-colors"
+        >
+          Built by Platform21
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

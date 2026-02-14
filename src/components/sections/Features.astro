@@ -1,0 +1,99 @@
+---
+import {
+  Flame,
+  Clock,
+  Wind,
+  Sparkles,
+  Leaf,
+} from "lucide-astro";
+import Container from "@/components/ui/Container.astro";
+
+interface Feature {
+  icon: "flame" | "clock" | "wind" | "sparkles" | "leaf";
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  features?: Feature[];
+}
+
+const icons = {
+  flame: Flame,
+  clock: Clock,
+  wind: Wind,
+  sparkles: Sparkles,
+  leaf: Leaf,
+};
+
+const defaultFeatures: Feature[] = [
+  {
+    icon: "flame",
+    title: "Exceptional Heat Output",
+    description:
+      "Ironbark produces intense, consistent heat ideal for cooking and heating",
+  },
+  {
+    icon: "clock",
+    title: "Long Burn Time",
+    description:
+      "Dense hardwood means fewer trips to the woodpile and more time enjoying your fire",
+  },
+  {
+    icon: "wind",
+    title: "Clean Burning",
+    description:
+      "Properly seasoned Ironbark produces minimal smoke and creosote buildup",
+  },
+  {
+    icon: "sparkles",
+    title: "Excellent Coaling",
+    description:
+      "Creates a bed of long-lasting coals perfect for cooking",
+  },
+  {
+    icon: "leaf",
+    title: "Sustainably Sourced",
+    description:
+      "Responsibly harvested Western Ironbark from sustainable operations",
+  },
+];
+
+const {
+  title = "Why Western Ironbark?",
+  subtitle = "One of Australia's finest burning hardwoods",
+  features = defaultFeatures,
+} = Astro.props;
+---
+
+<section class="py-16 lg:py-24 bg-base-100">
+  <Container>
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
+        {title}
+      </h2>
+      {subtitle && <p class="text-lg text-base-content/70">{subtitle}</p>}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        features.map((feature) => {
+          const IconComponent = icons[feature.icon];
+          return (
+            <div class="text-center p-6">
+              <div class="w-16 h-16 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
+                <IconComponent class="w-8 h-8 text-accent" />
+              </div>
+              <h3 class="font-heading text-xl font-semibold text-primary mb-2">
+                {feature.title}
+              </h3>
+              <p class="text-base-content/70">{feature.description}</p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </Container>
+</section>

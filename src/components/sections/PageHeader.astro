@@ -1,0 +1,44 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  image?: string;
+  compact?: boolean;
+}
+
+const {
+  title,
+  subtitle,
+  image = "/images/firewood-pile-ironbark-logs.jpg",
+  compact = false,
+} = Astro.props;
+
+const heightClass = compact ? "py-12 lg:py-16" : "py-16 lg:py-24";
+---
+
+<section class={`relative ${heightClass}`}>
+  <!-- Background -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src={image}
+      alt=""
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-primary/80"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container mx-auto px-4 relative z-10 text-center">
+    <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+      {title}
+    </h1>
+    {
+      subtitle && (
+        <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+          {subtitle}
+        </p>
+      )
+    }
+  </div>
+</section>

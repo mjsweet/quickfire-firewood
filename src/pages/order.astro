@@ -1,0 +1,415 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeader from "@/components/sections/PageHeader.astro";
+import CTA from "@/components/sections/CTA.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG, SERVICE_AREAS } from "@/lib/constants";
+import {
+  Package,
+  Truck,
+  MapPin,
+  Scissors,
+  CreditCard,
+  Clock,
+  Phone,
+  Mail,
+} from "lucide-astro";
+---
+
+<BaseLayout
+  title="Order Firewood Brisbane | Pricing and Delivery | Quickfire Firewood"
+  description="Order premium Western Ironbark firewood in Brisbane and Gold Coast. Bags, crates and bulk options. Delivery or pickup available. Custom splitting at no extra charge."
+  keywords={[
+    "order firewood Brisbane",
+    "firewood delivery Gold Coast",
+    "firewood prices Brisbane",
+    "buy firewood Brisbane",
+    "firewood pickup Brisbane",
+    "bulk firewood Queensland",
+  ]}
+>
+  <PageHeader
+    title="Order Your Firewood"
+    subtitle="Premium Western Ironbark delivered to your door or ready for pickup"
+    image="/images/split-firewood-pile.jpg"
+  />
+
+  <!-- How to Order -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container>
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
+          How to Order
+        </h2>
+        <p class="text-lg text-base-content/70">
+          Ordering your premium Ironbark firewood from Quickfire is simple. Call us, send an
+          email, or fill out our contact form - whatever works best for you.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-12">
+        <a
+          href={SITE_CONFIG.phoneLink}
+          class="flex items-center gap-4 bg-accent text-white p-6 rounded-lg hover:bg-accent/90 transition-colors"
+        >
+          <Phone class="w-8 h-8 flex-shrink-0" />
+          <div>
+            <div class="font-semibold">Phone</div>
+            <div class="text-lg">{SITE_CONFIG.phone}</div>
+          </div>
+        </a>
+
+        <a
+          href={SITE_CONFIG.emailLink}
+          class="flex items-center gap-4 bg-primary text-white p-6 rounded-lg hover:bg-secondary transition-colors"
+        >
+          <Mail class="w-8 h-8 flex-shrink-0" />
+          <div>
+            <div class="font-semibold">Email</div>
+            <div class="text-lg">{SITE_CONFIG.email}</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="bg-base-200 rounded-lg p-6 lg:p-8 max-w-2xl mx-auto">
+        <h3 class="font-heading text-xl font-semibold text-primary mb-4">
+          When you get in touch, we will discuss:
+        </h3>
+        <ul class="space-y-2 text-base-content/80">
+          <li class="flex items-center gap-2">
+            <span class="w-2 h-2 bg-accent rounded-full"></span>
+            The quantity you need
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-2 h-2 bg-accent rounded-full"></span>
+            Your preferred split size
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-2 h-2 bg-accent rounded-full"></span>
+            Delivery or pickup
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-2 h-2 bg-accent rounded-full"></span>
+            Any specific requirements
+          </li>
+        </ul>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Our Firewood -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-6">
+            Our Firewood
+          </h2>
+          <p class="text-lg text-base-content/70 mb-6">
+            All our firewood is <strong>premium Western Ironbark</strong> - one of Australia's
+            finest burning hardwoods. Every piece is:
+          </p>
+          <ul class="space-y-3">
+            {[
+              "Seasoned for 12+ months for optimal burning",
+              "Sustainably sourced",
+              "Cut and split to your specifications",
+              "Ready to burn from day one",
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span class="w-2 h-2 bg-accent rounded-full"></span>
+                </span>
+                <span class="text-base-content/80">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <img
+            src="/images/firewood-pile-ironbark-logs.jpg"
+            alt="Premium Western Ironbark firewood"
+            class="rounded-lg shadow-lg w-full"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Order Sizes -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Order Sizes
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            icon: Package,
+            title: "Bags",
+            description:
+              "Perfect for trying our firewood or topping up your supply. Our bags contain quality Ironbark splits ready for immediate use.",
+          },
+          {
+            icon: Package,
+            title: "Crates",
+            description:
+              "Our most popular option for regular residential use. Crates provide excellent value and enough firewood for several weeks of regular fires.",
+          },
+          {
+            icon: Truck,
+            title: "Bulk Orders",
+            description:
+              "For serious fire enthusiasts and commercial customers. Bulk orders provide the best value and ensure you have ample supply for the season.",
+          },
+        ].map(({ icon: Icon, title, description }) => (
+          <div class="bg-base-200 rounded-lg p-6 lg:p-8 text-center">
+            <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Icon class="w-8 h-8 text-accent" />
+            </div>
+            <h3 class="font-heading text-xl font-semibold text-primary mb-3">{title}</h3>
+            <p class="text-base-content/70">{description}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-base-content/60 mt-8 italic">
+        For exact pricing on any quantity, please contact us directly. Prices depend on
+        quantity and delivery location, and we are happy to provide a quote for your specific
+        needs.
+      </p>
+    </Container>
+  </section>
+
+  <!-- Custom Splitting -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <img
+            src="/images/split-firewood-pile.jpg"
+            alt="Custom split firewood"
+            class="rounded-lg shadow-lg w-full"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+              <Scissors class="w-6 h-6 text-accent" />
+            </div>
+            <h2 class="font-heading text-3xl font-bold text-primary">Custom Splitting</h2>
+          </div>
+
+          <p class="text-lg text-base-content/70 mb-6">
+            Not all fires are the same, and neither is all firewood. We offer{" "}
+            <strong>custom splitting at no extra charge</strong> so you receive wood sized
+            perfectly for your application:
+          </p>
+
+          <div class="space-y-4">
+            {[
+              { size: "Small Splits", uses: "Pizza ovens, Kettle BBQs, Fire starting" },
+              { size: "Standard Splits", uses: "Most fireplaces, Fire pits, General use" },
+              { size: "Large Splits", uses: "Large fireplaces, Overnight burns, Large fire pits" },
+              {
+                size: "Mixed Sizes",
+                uses: "Versatile option with starter pieces and main logs",
+              },
+            ].map((item) => (
+              <div class="bg-base-100 rounded-lg p-4">
+                <h4 class="font-semibold text-primary">{item.size}</h4>
+                <p class="text-sm text-base-content/70">{item.uses}</p>
+              </div>
+            ))}
+          </div>
+
+          <p class="text-base-content/70 mt-6 italic">
+            Just tell us what you are using the firewood for, and we will split it accordingly.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Delivery -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+              <Truck class="w-6 h-6 text-accent" />
+            </div>
+            <h2 class="font-heading text-3xl font-bold text-primary">Delivery</h2>
+          </div>
+
+          <p class="text-lg text-base-content/70 mb-6">
+            We deliver premium Ironbark firewood throughout the Brisbane and Gold Coast regions.
+          </p>
+
+          <h3 class="font-heading text-xl font-semibold text-primary mb-4">Delivery Areas</h3>
+          <div class="grid grid-cols-2 gap-2 mb-6">
+            {SERVICE_AREAS.map((area) => (
+              <div class="flex items-center gap-2 text-base-content/80">
+                <MapPin class="w-4 h-4 text-accent flex-shrink-0" />
+                <span>{area}</span>
+              </div>
+            ))}
+          </div>
+
+          <p class="text-sm text-base-content/60 italic">
+            Not sure if we deliver to your area? Give us a call on{" "}
+            <a href={SITE_CONFIG.phoneLink} class="text-accent hover:underline">
+              {SITE_CONFIG.phone}
+            </a>{" "}
+            and we will let you know.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-heading text-xl font-semibold text-primary mb-4">Delivery Details</h3>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3 text-base-content/80">
+              <span class="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="w-2 h-2 bg-accent rounded-full"></span>
+              </span>
+              Delivery charges depend on location and order size
+            </li>
+            <li class="flex items-start gap-3 text-base-content/80">
+              <span class="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="w-2 h-2 bg-accent rounded-full"></span>
+              </span>
+              We will provide a delivery quote when you place your order
+            </li>
+            <li class="flex items-start gap-3 text-base-content/80">
+              <span class="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="w-2 h-2 bg-accent rounded-full"></span>
+              </span>
+              Deliveries are made to a convenient location on your property
+            </li>
+            <li class="flex items-start gap-3 text-base-content/80">
+              <span class="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="w-2 h-2 bg-accent rounded-full"></span>
+              </span>
+              Please ensure clear access for our delivery vehicle
+            </li>
+          </ul>
+
+          <div class="bg-base-200 rounded-lg p-6">
+            <h4 class="font-semibold text-primary mb-2">Stacking Service</h4>
+            <p class="text-base-content/70">
+              Need your firewood stacked? Just ask when you order. We can stack your delivery
+              in your woodshed, garage, or designated storage area.
+            </p>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Pickup -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container size="narrow">
+      <div class="text-center">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-6">Pickup</h2>
+        <p class="text-lg text-base-content/70 mb-8">
+          Prefer to collect your firewood yourself? You are welcome to{" "}
+          <strong>pick up from our yard</strong> and save on delivery costs.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto">
+          {[
+            "Call ahead to arrange pickup time",
+            "We will have your order ready and loaded",
+            "Cash, card, and bank transfer accepted",
+            "Custom splitting still available",
+          ].map((item) => (
+            <div class="flex items-center gap-2 text-base-content/80">
+              <span class="w-2 h-2 bg-accent rounded-full flex-shrink-0"></span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+
+        <p class="mt-8">
+          <a href={SITE_CONFIG.phoneLink} class="btn btn-accent">
+            <Phone class="w-5 h-5 mr-2" />
+            Call to Arrange Pickup
+          </a>
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="space-y-6">
+        {[
+          {
+            question: "How long does delivery take?",
+            answer:
+              "We typically deliver within a few days of ordering, depending on current demand and your location. For urgent requirements, give us a call and we will do our best to accommodate.",
+          },
+          {
+            question: "Can I see the firewood before ordering?",
+            answer:
+              "Absolutely. You are welcome to visit our yard by appointment to see our Ironbark quality firsthand. Just call ahead to arrange a time.",
+          },
+          {
+            question: "How should I store my firewood?",
+            answer:
+              "Store your Ironbark in a dry, well-ventilated area, ideally under cover. Keep wood off the ground on pallets or a rack. Well-stored Ironbark will remain in excellent condition indefinitely.",
+          },
+          {
+            question: "Is your firewood ready to burn?",
+            answer:
+              "Yes. Our Ironbark is seasoned for 12 months or more and is ready to burn from the day you receive it.",
+          },
+          {
+            question: "What payment methods do you accept?",
+            answer:
+              "We accept cash, card, and bank transfer. Payment is required at time of delivery or pickup.",
+          },
+        ].map((faq) => (
+          <div class="bg-base-200 rounded-lg p-6">
+            <h3 class="font-heading text-lg font-semibold text-primary mb-2">{faq.question}</h3>
+            <p class="text-base-content/70">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Commercial Link -->
+  <section class="py-12 bg-base-200">
+    <Container>
+      <div class="text-center">
+        <p class="text-lg text-base-content/70 mb-4">
+          Running a restaurant, pizzeria, or commercial kitchen?
+        </p>
+        <a href="/commercial" class="btn btn-outline">View Commercial Supply Options</a>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <CTA
+    headline="Ready to Order?"
+    description="Contact us today for pricing and to place your order. Premium Western Ironbark, custom split and delivered (or ready for pickup)."
+    primaryCTA={{ text: `Call ${SITE_CONFIG.phone}`, href: SITE_CONFIG.phoneLink }}
+    secondaryCTA={{ text: "Email Us", href: SITE_CONFIG.emailLink }}
+    variant="dark"
+  />
+</BaseLayout>

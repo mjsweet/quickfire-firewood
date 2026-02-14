@@ -1,0 +1,121 @@
+---
+interface Props {
+  formName?: string;
+  title?: string;
+  successRedirect?: string;
+}
+
+const {
+  formName = "contact",
+  title = "Send Us a Message",
+  successRedirect = "/thank-you",
+} = Astro.props;
+---
+
+<div class="bg-base-100 rounded-lg shadow-md border border-base-200 p-6 lg:p-8">
+  {title && (
+    <h3 class="font-heading text-2xl font-semibold text-primary mb-6">
+      {title}
+    </h3>
+  )}
+
+  <form
+    name={formName}
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    action={successRedirect}
+    class="space-y-6"
+  >
+    <input type="hidden" name="form-name" value={formName} />
+
+    <!-- Honeypot field for spam protection -->
+    <p class="hidden">
+      <label>
+        Don't fill this out: <input name="bot-field" />
+      </label>
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="form-control">
+        <label for="name" class="label">
+          <span class="label-text font-medium">
+            Name <span class="text-error">*</span>
+          </span>
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="input input-bordered w-full"
+          placeholder="Your name"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="phone" class="label">
+          <span class="label-text font-medium">Phone</span>
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          class="input input-bordered w-full"
+          placeholder="Your phone number"
+        />
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="email" class="label">
+        <span class="label-text font-medium">
+          Email <span class="text-error">*</span>
+        </span>
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        class="input input-bordered w-full"
+        placeholder="your@email.com"
+      />
+    </div>
+
+    <div class="form-control">
+      <label for="service" class="label">
+        <span class="label-text font-medium">What do you need firewood for?</span>
+      </label>
+      <select id="service" name="service" class="select select-bordered w-full">
+        <option value="" disabled selected>Select an option</option>
+        <option value="fireplace">Fireplace</option>
+        <option value="pizza-oven">Pizza Oven</option>
+        <option value="bbq">BBQ / Smoking</option>
+        <option value="fire-pit">Fire Pit</option>
+        <option value="commercial">Commercial / Restaurant</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-control">
+      <label for="message" class="label">
+        <span class="label-text font-medium">
+          Message <span class="text-error">*</span>
+        </span>
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        required
+        class="textarea textarea-bordered w-full"
+        placeholder="Tell us about your firewood needs..."
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-accent w-full md:w-auto">
+      Send Message
+    </button>
+  </form>
+</div>

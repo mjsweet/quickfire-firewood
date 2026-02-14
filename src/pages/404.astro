@@ -1,0 +1,71 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG } from "@/lib/constants";
+import { Home, Phone, Search } from "lucide-astro";
+---
+
+<BaseLayout
+  title="Page Not Found | Quickfire Firewood"
+  description="The page you're looking for doesn't exist or has been moved."
+>
+  <section class="min-h-[60vh] flex items-center py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <div class="text-center">
+        <h1 class="font-heading text-7xl md:text-8xl font-bold text-base-300 mb-4">
+          404
+        </h1>
+
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-primary mb-4">
+          Page Not Found
+        </h2>
+
+        <p class="text-lg text-base-content/70 mb-8 max-w-md mx-auto">
+          Sorry, the page you are looking for does not exist or has been moved.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+          <a href="/" class="btn btn-accent inline-flex items-center gap-2">
+            <Home class="w-5 h-5" />
+            Go Home
+          </a>
+          <a href="/contact" class="btn btn-outline inline-flex items-center gap-2">
+            <Phone class="w-5 h-5" />
+            Contact Us
+          </a>
+        </div>
+
+        <div class="bg-base-200 rounded-lg p-6 max-w-md mx-auto">
+          <h3 class="font-semibold text-primary mb-3">Looking for something?</h3>
+          <ul class="space-y-2 text-left">
+            <li>
+              <a href="/order" class="text-accent hover:underline">
+                Order Firewood
+              </a>
+            </li>
+            <li>
+              <a href="/firewood/pizza-ovens" class="text-accent hover:underline">
+                Pizza Oven Firewood
+              </a>
+            </li>
+            <li>
+              <a href="/firewood/fireplaces" class="text-accent hover:underline">
+                Fireplace Firewood
+              </a>
+            </li>
+            <li>
+              <a href="/commercial" class="text-accent hover:underline">
+                Commercial Supply
+              </a>
+            </li>
+            <li>
+              <a href="/about" class="text-accent hover:underline">
+                About Us
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

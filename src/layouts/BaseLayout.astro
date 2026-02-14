@@ -1,0 +1,75 @@
+---
+import "@/assets/app.css";
+import Header from "@/components/layout/Header.astro";
+import Footer from "@/components/layout/Footer.astro";
+import SEOHead from "@/components/seo/SEOHead.astro";
+import Schema from "@/components/seo/Schema.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: "website" | "article";
+  keywords?: string[];
+  schema?: "LocalBusiness" | "WebSite" | "Article";
+}
+
+const {
+  title,
+  description,
+  image,
+  canonicalURL,
+  type = "website",
+  keywords = [],
+  schema = "LocalBusiness",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en-AU" data-theme="quickfire">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="apple-touch-icon" href="/images/logo.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- SEO -->
+    <SEOHead
+      title={title}
+      description={description}
+      image={image}
+      canonicalURL={canonicalURL}
+      type={type}
+      keywords={keywords}
+    />
+
+    <!-- Schema markup -->
+    <Schema type={schema} />
+    {schema !== "WebSite" && <Schema type="WebSite" />}
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-base-100 text-base-content">
+    <!-- Skip to content link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <Header />
+
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

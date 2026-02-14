@@ -1,0 +1,251 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeader from "@/components/sections/PageHeader.astro";
+import ContactForm from "@/components/sections/ContactForm.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG, SERVICE_AREAS } from "@/lib/constants";
+import { Phone, Mail, MapPin, Clock } from "lucide-astro";
+---
+
+<BaseLayout
+  title="Contact Quickfire Firewood | Brisbane and Gold Coast Firewood Delivery"
+  description="Contact Quickfire Firewood for premium Western Ironbark in Brisbane and Gold Coast. Call 1300 965 529 or email orders@quickfirewood.com.au. Delivery and pickup available."
+  keywords={[
+    "contact Quickfire Firewood",
+    "firewood Brisbane phone",
+    "firewood Gold Coast contact",
+    "order firewood Brisbane",
+    "firewood enquiry Queensland",
+  ]}
+>
+  <PageHeader
+    title="Contact Us"
+    subtitle="Get in touch for orders, enquiries and quotes"
+    image="/images/branded-ute-firewood-yard.jpg"
+  />
+
+  <!-- Main Content -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Contact Info -->
+        <div>
+          <h2 class="font-heading text-3xl font-bold text-primary mb-6">
+            We Would Love to Hear from You
+          </h2>
+          <p class="text-lg text-base-content/70 mb-8">
+            Whether you are ready to order, have questions about our firewood, or want to
+            discuss commercial supply arrangements, we are here to help.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <Phone class="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h3 class="font-semibold text-primary">Phone</h3>
+                <a
+                  href={SITE_CONFIG.phoneLink}
+                  class="text-lg text-accent hover:underline"
+                >
+                  {SITE_CONFIG.phone}
+                </a>
+                <p class="text-sm text-base-content/60 mt-1">
+                  Give us a call to place an order, get a quote, or ask any questions.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <Mail class="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h3 class="font-semibold text-primary">Email</h3>
+                <a
+                  href={SITE_CONFIG.emailLink}
+                  class="text-lg text-accent hover:underline"
+                >
+                  {SITE_CONFIG.email}
+                </a>
+                <p class="text-sm text-base-content/60 mt-1">
+                  Email us your order details or enquiry and we will get back to you promptly.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <Clock class="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h3 class="font-semibold text-primary">Response Times</h3>
+                <p class="text-base-content/70">
+                  We aim to respond to all enquiries within one business day.
+                </p>
+                <p class="text-sm text-base-content/60 mt-1">
+                  For urgent orders, please call us directly.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ordering Info -->
+          <div class="mt-8 bg-base-200 rounded-lg p-6">
+            <h3 class="font-heading text-lg font-semibold text-primary mb-4">
+              When contacting us, it helps to have:
+            </h3>
+            <ul class="space-y-2 text-base-content/70 text-sm">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                <strong>Quantity needed</strong> - Bags, crates, or bulk?
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                <strong>Intended use</strong> - Fireplace, pizza oven, BBQ, fire pit?
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                <strong>Split size preference</strong> - Small, standard, large, or mixed?
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                <strong>Delivery or pickup</strong> - And your delivery address if applicable
+              </li>
+            </ul>
+            <p class="text-base-content/60 text-sm mt-4 italic">
+              Do not worry if you are not sure - we are happy to advise based on your needs.
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div>
+          <ContactForm title="Send Us a Message" />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Service Area -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+              <MapPin class="w-6 h-6 text-accent" />
+            </div>
+            <h2 class="font-heading text-3xl font-bold text-primary">Service Area</h2>
+          </div>
+
+          <p class="text-lg text-base-content/70 mb-6">
+            We deliver premium Western Ironbark firewood throughout South East Queensland:
+          </p>
+
+          <div class="grid grid-cols-2 gap-3">
+            {SERVICE_AREAS.map((area) => (
+              <div class="flex items-center gap-2 text-base-content/80">
+                <MapPin class="w-4 h-4 text-accent flex-shrink-0" />
+                <span>{area}</span>
+              </div>
+            ))}
+          </div>
+
+          <p class="text-base-content/60 mt-6 italic">
+            Not sure if we deliver to your area? Just ask - we may be able to accommodate
+            locations outside our standard delivery zone.
+          </p>
+        </div>
+
+        <div class="bg-base-100 rounded-lg p-8">
+          <h3 class="font-heading text-xl font-semibold text-primary mb-4">Pickup Available</h3>
+          <p class="text-base-content/70 mb-4">
+            Prefer to collect your firewood? You are welcome to pick up from our yard. Just
+            call ahead to arrange a time and we will have your order ready and loaded.
+          </p>
+          <a href={SITE_CONFIG.phoneLink} class="btn btn-accent">
+            <Phone class="w-5 h-5 mr-2" />
+            Call to Arrange Pickup
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="space-y-6">
+        {[
+          {
+            question: "How quickly can you deliver?",
+            answer:
+              "We typically deliver within a few days of ordering. For urgent requirements, give us a call and we will do our best to help.",
+          },
+          {
+            question: "Can I visit to see the firewood before ordering?",
+            answer:
+              "Absolutely. You are welcome to visit our yard by appointment. Call us to arrange a time.",
+          },
+          {
+            question: "What payment methods do you accept?",
+            answer: "We accept cash, card, and bank transfer.",
+          },
+        ].map((faq) => (
+          <div class="bg-base-200 rounded-lg p-6">
+            <h3 class="font-heading text-lg font-semibold text-primary mb-2">{faq.question}</h3>
+            <p class="text-base-content/70">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Commercial Link -->
+  <section class="py-12 bg-base-200">
+    <Container>
+      <div class="text-center">
+        <h3 class="font-heading text-xl font-semibold text-primary mb-4">
+          Commercial Enquiries
+        </h3>
+        <p class="text-base-content/70 mb-4">
+          Running a restaurant, pizzeria, or commercial kitchen? We offer regular supply
+          arrangements with priority delivery and bulk pricing.
+        </p>
+        <a href="/commercial" class="btn btn-outline">Commercial Firewood Supply</a>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Footer Contact -->
+  <section class="py-16 bg-primary text-primary-content">
+    <Container>
+      <div class="text-center">
+        <h2 class="font-heading text-2xl font-bold mb-4">Quickfire Firewood</h2>
+        <p class="text-lg mb-2">Premium Western Ironbark | Brisbane and Gold Coast</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+          <a
+            href={SITE_CONFIG.phoneLink}
+            class="flex items-center justify-center gap-2 hover:text-warning transition-colors"
+          >
+            <Phone class="w-5 h-5" />
+            {SITE_CONFIG.phone}
+          </a>
+          <a
+            href={SITE_CONFIG.emailLink}
+            class="flex items-center justify-center gap-2 hover:text-warning transition-colors"
+          >
+            <Mail class="w-5 h-5" />
+            {SITE_CONFIG.email}
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

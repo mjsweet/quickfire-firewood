@@ -1,0 +1,272 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeader from "@/components/sections/PageHeader.astro";
+import CTA from "@/components/sections/CTA.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG, TESTIMONIALS } from "@/lib/constants";
+import { Flame, Clock, Wind, Sparkles, Heart } from "lucide-astro";
+---
+
+<BaseLayout
+  title="Firewood for Fire Pits Brisbane | Premium Ironbark | Quickfire Firewood"
+  description="Premium Western Ironbark firewood for fire pits in Brisbane and Gold Coast. Long-burning, low smoke hardwood perfect for outdoor entertaining. Delivery available."
+  keywords={[
+    "fire pit firewood Brisbane",
+    "outdoor fire wood Gold Coast",
+    "fire pit wood delivery",
+    "ironbark fire pit",
+    "backyard fire wood Brisbane",
+  ]}
+>
+  <PageHeader
+    title="Firewood for Fire Pits"
+    subtitle="Premium Western Ironbark for memorable outdoor gatherings"
+    image="/images/fire-pit-evening-burning.jpg"
+  />
+
+  <!-- Intro -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-8">
+        Gather Around the Fire
+      </h2>
+
+      <div class="prose prose-lg max-w-none text-base-content/80 text-center">
+        <p>
+          There is something timeless about gathering around a fire pit. Friends and family
+          drawn together by the warmth, the mesmerising flames, the conversations that flow
+          more easily under the stars. Whether it is a casual weekend evening or a special
+          celebration, a good fire pit brings people together.
+        </p>
+        <p>
+          But not all fires are equal. A great fire pit experience requires firewood that
+          burns long, produces minimal smoke, and creates that beautiful glowing ambiance.
+          Our <strong>Western Ironbark</strong> delivers on all counts.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Why Ironbark -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Why Ironbark is Perfect for Fire Pits
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          {
+            icon: Clock,
+            title: "Long-Lasting Fires",
+            description:
+              "No one wants to spend their evening constantly feeding the fire. Ironbark's exceptional density means each log burns significantly longer than softer woods.",
+          },
+          {
+            icon: Wind,
+            title: "Minimal Smoke",
+            description:
+              "Few things ruin a fire pit gathering faster than smoke chasing you around. Properly seasoned Ironbark burns cleanly with minimal smoke.",
+          },
+          {
+            icon: Sparkles,
+            title: "Beautiful Glowing Coals",
+            description:
+              "Ironbark creates a stunning bed of glowing coals that radiates warmth long after the flames have settled - perfect for toasting marshmallows.",
+          },
+          {
+            icon: Flame,
+            title: "Impressive Flames",
+            description:
+              "Dense hardwood produces strong, stable flames that are visually impressive without wild sparking and unpredictable flare-ups.",
+          },
+          {
+            icon: Heart,
+            title: "Pleasant Aroma",
+            description:
+              "Ironbark produces a subtle, natural wood smoke scent that adds to the atmosphere without overwhelming.",
+          },
+        ].map(({ icon: Icon, title, description }) => (
+          <div class="bg-base-100 rounded-lg p-6 text-center">
+            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Icon class="w-6 h-6 text-accent" />
+            </div>
+            <h3 class="font-heading text-lg font-semibold text-primary mb-2">{title}</h3>
+            <p class="text-base-content/70 text-sm">{description}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Creating the Perfect Experience -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Creating the Perfect Fire Pit Experience
+      </h2>
+
+      <div class="space-y-6">
+        {[
+          {
+            title: "Choosing Your Spot",
+            description:
+              "Position your fire pit away from overhanging branches, structures, and dry vegetation. Ensure guests have comfortable seating at a safe distance, and consider wind direction.",
+          },
+          {
+            title: "Building Your Fire",
+            description:
+              "Start with crumpled newspaper or fire starters beneath a tepee of kindling. Once the kindling is burning well, add your Ironbark splits progressively.",
+          },
+          {
+            title: "Maintaining the Fire",
+            description:
+              "Once established, Ironbark requires minimal attention. Add a log or two every 30-45 minutes for a consistent fire.",
+          },
+          {
+            title: "Fire Pit Safety",
+            tips: [
+              "Keep a bucket of water or sand nearby",
+              "Never leave fires unattended",
+              "Ensure the fire is fully extinguished before leaving",
+              "Check local fire restrictions, especially during summer months",
+            ],
+          },
+        ].map((item) => (
+          <div class="bg-base-200 rounded-lg p-6">
+            <h3 class="font-heading text-lg font-semibold text-primary mb-2">{item.title}</h3>
+            {item.description && <p class="text-base-content/70">{item.description}</p>}
+            {item.tips && (
+              <ul class="mt-2 space-y-1">
+                {item.tips.map((tip) => (
+                  <li class="flex items-center gap-2 text-base-content/70 text-sm">
+                    <span class="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0"></span>
+                    {tip}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Split Sizes -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <img
+            src="/images/fire-pit-evening-burning.jpg"
+            alt="Fire pit with Ironbark firewood"
+            class="rounded-lg shadow-lg w-full"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-6">
+            Split Sizes for Fire Pits
+          </h2>
+          <p class="text-lg text-base-content/70 mb-6">
+            Fire pit style affects the ideal wood size. We offer{" "}
+            <strong>custom splitting</strong> to suit your setup:
+          </p>
+
+          <div class="space-y-4">
+            <div class="bg-base-100 rounded-lg p-4">
+              <h4 class="font-semibold text-primary">Standard Fire Pit Splits</h4>
+              <p class="text-sm text-base-content/70 mt-1">
+                Suits most backyard fire pits. Easy to handle and stack. Approximately 30-40cm length.
+              </p>
+            </div>
+
+            <div class="bg-base-100 rounded-lg p-4">
+              <h4 class="font-semibold text-primary">Large Splits</h4>
+              <p class="text-sm text-base-content/70 mt-1">
+                Ideal for larger fire pits and fire bowls. Extended burn times. Impressive visual impact.
+              </p>
+            </div>
+
+            <div class="bg-base-100 rounded-lg p-4">
+              <h4 class="font-semibold text-primary">Kindling Bundles</h4>
+              <p class="text-sm text-base-content/70 mt-1">
+                Essential for fire starting. Can be ordered with your firewood.
+              </p>
+            </div>
+          </div>
+
+          <p class="text-base-content/70 mt-6 italic">
+            Let us know about your fire pit when ordering, and we will prepare your wood accordingly.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- More Than Just a Fire -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-8">
+        More Than Just a Fire
+      </h2>
+      <p class="text-lg text-base-content/70 text-center mb-8">
+        A fire pit is the centrepiece of outdoor entertaining. Pair your Ironbark fire with:
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto">
+        {[
+          "Comfortable seating arranged in conversation-friendly circles",
+          "Blankets for cooler evenings",
+          "Marshmallows, chocolate, and biscuits for toasting",
+          "Drinks kept warm by the fire",
+          "Good company",
+        ].map((item) => (
+          <div class="flex items-center gap-2 text-base-content/80">
+            <span class="w-2 h-2 bg-accent rounded-full flex-shrink-0"></span>
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-base-content/70 mt-8 italic">
+        The right firewood is the foundation - the rest is up to you.
+      </p>
+    </Container>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container size="narrow">
+      <div class="bg-base-100 rounded-lg p-8 text-center">
+        <blockquote class="text-lg italic text-base-content/80 mb-4">
+          "{TESTIMONIALS[1].quote}"
+        </blockquote>
+        <cite class="font-semibold text-primary">- {TESTIMONIALS[1].author}</cite>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <CTA
+    headline="Ready for Your Next Fire Pit Night?"
+    description="Order premium Western Ironbark for unforgettable outdoor gatherings. Delivery available across Brisbane and the Gold Coast."
+    primaryCTA={{ text: "View Pricing and Order", href: "/order" }}
+    secondaryCTA={{ text: `Call ${SITE_CONFIG.phone}`, href: SITE_CONFIG.phoneLink }}
+    variant="dark"
+  />
+
+  <!-- Related -->
+  <section class="py-12 bg-base-100">
+    <Container>
+      <h3 class="font-heading text-xl font-semibold text-primary text-center mb-6">Related</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/order" class="btn btn-outline btn-sm">How to Order</a>
+        <a href="/firewood/bbq" class="btn btn-outline btn-sm">BBQ and Grilling</a>
+        <a href="/about" class="btn btn-outline btn-sm">About Us</a>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

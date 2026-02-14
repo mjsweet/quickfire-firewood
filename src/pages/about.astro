@@ -1,0 +1,274 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeader from "@/components/sections/PageHeader.astro";
+import CTA from "@/components/sections/CTA.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG } from "@/lib/constants";
+import { Heart, Shield, Users, Scissors, Leaf } from "lucide-astro";
+---
+
+<BaseLayout
+  title="About Quickfire Firewood | Family-Owned Brisbane Firewood Suppliers"
+  description="Meet Jane and John, the family behind Quickfire Firewood. Learn about our commitment to premium Western Ironbark, sustainable sourcing, and exceptional customer service in Brisbane and Gold Coast."
+  keywords={[
+    "about Quickfire Firewood",
+    "family firewood business Brisbane",
+    "firewood suppliers Gold Coast",
+    "Jane and John firewood",
+    "sustainable firewood Queensland",
+  ]}
+>
+  <PageHeader
+    title="About Quickfire Firewood"
+    subtitle="Family-owned, quality-focused firewood suppliers serving Brisbane and the Gold Coast"
+  />
+
+  <!-- Our Story -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-8">
+        Our Story
+      </h2>
+
+      <div class="prose prose-lg max-w-none text-base-content/80">
+        <p>
+          We are Jane and John, and we have been supplying premium firewood to families and
+          businesses across South East Queensland for years. What started as a passion for
+          quality wood-fired cooking has grown into a business built on one simple idea:
+          <strong>provide the kind of firewood we would want to burn ourselves</strong>.
+        </p>
+
+        <p>
+          Before we started Quickfire Firewood, we were customers ourselves. We knew the
+          frustration of ordering firewood only to receive damp, green wood that smoked more
+          than it burned. We experienced the disappointment of "mixed hardwood" that was
+          anything but premium. And we understood the difference that truly quality firewood
+          makes to a fire.
+        </p>
+
+        <p>So we decided to do something about it.</p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Why Ironbark -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-6">
+            Why We Focus on Western Ironbark
+          </h2>
+
+          <div class="prose prose-lg max-w-none text-base-content/80">
+            <p>
+              When we set out to supply firewood, we wanted to offer the best - not the cheapest,
+              not the most convenient to source, but genuinely the best burning wood available.
+              That led us to Western Ironbark.
+            </p>
+
+            <p>
+              Ironbark is one of Australia's densest and hardest timbers. It burns longer,
+              produces more heat, and creates better coals than lighter hardwoods. For
+              wood-fired cooking, it is unmatched. For home heating, it means fewer logs and
+              more warmth. For fire pits, it creates those beautiful glowing embers that last
+              well into the night.
+            </p>
+
+            <p>
+              We source our Ironbark responsibly and take the time to season it properly.
+              Every load that leaves our yard has been dried for at least 12 months, ensuring
+              you receive firewood that is genuinely ready to burn.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <img
+            src="/images/ironbark-logs-closeup.jpg"
+            alt="Western Ironbark logs showing grain and texture"
+            class="rounded-lg shadow-lg w-full"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Our Values -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Our Values
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {[
+          {
+            icon: Heart,
+            title: "Quality Over Quantity",
+            description:
+              "We would rather supply less wood of exceptional quality than more wood of questionable origin. Every piece of firewood we sell is Western Ironbark, properly seasoned and ready to perform.",
+          },
+          {
+            icon: Shield,
+            title: "Honest Service",
+            description:
+              "We tell you exactly what you are getting. No mystery mixes, no \"seasoned\" wood that is actually green, no hidden fees. What you see is what you get, and what you get is premium firewood.",
+          },
+          {
+            icon: Users,
+            title: "Personal Touch",
+            description:
+              "When you call Quickfire, you are dealing with us directly - not a call centre, not a franchise. We take your order, we prepare your firewood, and we ensure it reaches you in perfect condition.",
+          },
+          {
+            icon: Scissors,
+            title: "Custom Service",
+            description:
+              "Not every customer needs the same thing. Some want large logs for overnight burns in a fireplace. Others need small splits for pizza ovens. We split to your specifications at no extra charge.",
+          },
+        ].map(({ icon: Icon, title, description }) => (
+          <div class="bg-base-200 rounded-lg p-6 lg:p-8">
+            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+              <Icon class="w-6 h-6 text-accent" />
+            </div>
+            <h3 class="font-heading text-xl font-semibold text-primary mb-3">{title}</h3>
+            <p class="text-base-content/70">{description}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Sustainability -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <img
+            src="/images/branded-ute-firewood-yard.jpg"
+            alt="Quickfire Firewood yard operations"
+            class="rounded-lg shadow-lg w-full"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+              <Leaf class="w-6 h-6 text-accent" />
+            </div>
+            <h2 class="font-heading text-3xl font-bold text-primary">
+              Sustainability Commitment
+            </h2>
+          </div>
+
+          <div class="prose prose-lg max-w-none text-base-content/80">
+            <p>
+              We believe quality and sustainability go hand in hand. Our Western Ironbark is
+              sourced from sustainable operations, and we take care to minimise waste at every
+              stage of our business.
+            </p>
+
+            <p>
+              Firewood is a renewable fuel source when managed responsibly. By choosing properly
+              sourced hardwood, you are supporting sustainable forestry practices while enjoying
+              one of nature's oldest heating and cooking methods.
+            </p>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Who We Serve -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Serving Home and Business
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-base-200 rounded-lg p-6 lg:p-8">
+          <h3 class="font-heading text-xl font-semibold text-primary mb-4">
+            Residential Customers
+          </h3>
+          <ul class="space-y-2 text-base-content/80">
+            <li>Homeowners with fireplaces seeking reliable heating</li>
+            <li>Pizza oven enthusiasts perfecting their wood-fired cooking</li>
+            <li>Families who love gathering around the fire pit</li>
+            <li>BBQ enthusiasts who know wood makes the difference</li>
+          </ul>
+        </div>
+
+        <div class="bg-base-200 rounded-lg p-6 lg:p-8">
+          <h3 class="font-heading text-xl font-semibold text-primary mb-4">
+            Commercial Clients
+          </h3>
+          <ul class="space-y-2 text-base-content/80">
+            <li>Pizza restaurants requiring consistent, high-heat wood</li>
+            <li>BBQ and smokehouse venues</li>
+            <li>Charcoal grill restaurants</li>
+            <li>Caterers and event companies</li>
+            <li>Hotels and resorts with fire features</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="text-center text-base-content/70 mt-8">
+        Whether you need a single delivery or regular commercial supply, we provide the same
+        commitment to quality and service.
+      </p>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <CTA
+    headline="Experience the Quickfire Difference"
+    description="Ready to try premium Western Ironbark firewood? Order for delivery across Brisbane and the Gold Coast, or arrange pickup from our yard."
+    primaryCTA={{ text: "Order Your Firewood", href: "/order" }}
+    secondaryCTA={{ text: `Call ${SITE_CONFIG.phone}`, href: SITE_CONFIG.phoneLink }}
+    variant="dark"
+  />
+
+  <!-- Contact Info -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-8">
+        Get in Touch
+      </h2>
+
+      <div class="text-center text-base-content/80">
+        <p class="text-lg mb-6">
+          We love talking about firewood. Whether you have questions about Ironbark, need
+          advice on storing your wood, or want to discuss a commercial supply arrangement,
+          we are always happy to chat.
+        </p>
+
+        <p class="text-lg mb-2">
+          <strong>Phone:</strong>{" "}
+          <a href={SITE_CONFIG.phoneLink} class="text-accent hover:underline">
+            {SITE_CONFIG.phone}
+          </a>
+        </p>
+        <p class="text-lg mb-8">
+          <strong>Email:</strong>{" "}
+          <a href={SITE_CONFIG.emailLink} class="text-accent hover:underline">
+            {SITE_CONFIG.email}
+          </a>
+        </p>
+
+        <p class="text-lg italic">
+          We look forward to helping you enjoy better fires.
+        </p>
+        <p class="font-semibold mt-4">
+          {SITE_CONFIG.owners}<br />
+          Quickfire Firewood
+        </p>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

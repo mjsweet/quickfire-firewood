@@ -1,0 +1,181 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/sections/Hero.astro";
+import ProductCategories from "@/components/sections/ProductCategories.astro";
+import Features from "@/components/sections/Features.astro";
+import Testimonials from "@/components/sections/Testimonials.astro";
+import ServiceArea from "@/components/sections/ServiceArea.astro";
+import CTA from "@/components/sections/CTA.astro";
+import Container from "@/components/ui/Container.astro";
+import { PRODUCT_CATEGORIES, TESTIMONIALS, SITE_CONFIG } from "@/lib/constants";
+import { ArrowRight, CheckCircle } from "lucide-astro";
+---
+
+<BaseLayout
+  title="Premium Ironbark Firewood Brisbane and Gold Coast | Quickfire Firewood"
+  description="Family-owned supplier of premium Western Ironbark firewood in Brisbane and Gold Coast. Properly seasoned hardwood for fireplaces, pizza ovens, BBQs and fire pits. Delivery available."
+  keywords={[
+    "firewood Brisbane",
+    "firewood Gold Coast",
+    "ironbark firewood",
+    "firewood delivery Brisbane",
+    "premium firewood",
+    "hardwood firewood Queensland",
+  ]}
+  schema="WebSite"
+>
+  <!-- Hero Section -->
+  <Hero
+    headline="Premium Western Ironbark Firewood"
+    subheadline="Family-owned suppliers serving Brisbane and the Gold Coast"
+    primaryCTA={{ text: "Order Your Firewood", href: "/order" }}
+    secondaryCTA={{ text: `Call ${SITE_CONFIG.phone}`, href: SITE_CONFIG.phoneLink }}
+  />
+
+  <!-- Introduction Section -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <div class="prose prose-lg max-w-none">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-8">
+          Quality Firewood for Every Fire
+        </h2>
+
+        <p class="text-center text-base-content/80 text-lg mb-8">
+          Whether you are warming your home on a winter evening, perfecting your wood-fired pizza,
+          smoking a brisket, or gathering around the fire pit with friends, the right firewood
+          makes all the difference.
+        </p>
+
+        <p class="text-center text-base-content/80 text-lg mb-8">
+          At Quickfire Firewood, we supply <strong>premium Western Ironbark</strong> - one of
+          Australia's finest burning hardwoods. Our firewood is properly seasoned for 12 months
+          or more, ensuring clean burns, excellent heat output, and that satisfying crackle
+          that brings any fire to life.
+        </p>
+
+        <p class="text-center text-base-content/80 text-lg">
+          We are {SITE_CONFIG.owners}, and we have built our family business on one simple principle:
+          <strong>supply the firewood we would want to burn ourselves</strong>. That means no
+          green wood, no dodgy mixes, and no shortcuts on quality.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Product Categories -->
+  <ProductCategories
+    title="Firewood for Every Application"
+    subtitle="Premium Western Ironbark, properly seasoned and custom split for your specific needs"
+    categories={PRODUCT_CATEGORIES}
+  />
+
+  <!-- Why Ironbark Features -->
+  <Features />
+
+  <!-- Testimonials -->
+  <Testimonials testimonials={TESTIMONIALS} />
+
+  <!-- Service Area -->
+  <ServiceArea />
+
+  <!-- How to Order Section -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-6">
+            How to Order
+          </h2>
+          <p class="text-lg text-base-content/70 mb-8">
+            Ordering your premium Ironbark firewood is simple:
+          </p>
+
+          <div class="space-y-4">
+            {[
+              {
+                step: "1",
+                title: "Choose your quantity",
+                description: "We offer bags, crates, and bulk loads to suit any need",
+              },
+              {
+                step: "2",
+                title: "Tell us your splitting preference",
+                description: "We can split to your specifications at no extra charge",
+              },
+              {
+                step: "3",
+                title: "Select delivery or pickup",
+                description:
+                  "We deliver across Brisbane and the Gold Coast, or you can collect from our yard",
+              },
+              {
+                step: "4",
+                title: "Enjoy your fire",
+                description: "Properly seasoned, ready to burn",
+              },
+            ].map((item) => (
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-heading font-bold">
+                  {item.step}
+                </div>
+                <div>
+                  <h3 class="font-semibold text-primary">{item.title}</h3>
+                  <p class="text-base-content/70">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <a
+            href="/order"
+            class="btn btn-accent mt-8 inline-flex items-center gap-2"
+          >
+            View Pricing and Order
+            <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+
+        <div class="relative">
+          <img
+            src="/images/truck-loading-yard-operations.jpg"
+            alt="Loading firewood at Quickfire yard"
+            class="rounded-lg shadow-lg w-full"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Commercial Section -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-6">
+          Firewood for Home and Business
+        </h2>
+        <p class="text-lg text-base-content/70 mb-8">
+          We proudly supply firewood to <strong>residential customers</strong> looking for
+          quality wood for their fireplaces, pizza ovens, and outdoor entertaining, as well as
+          <strong>commercial clients</strong> including restaurants, pizzerias, and BBQ venues
+          across South East Queensland.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/order" class="btn btn-accent">Order for Home</a>
+          <a href="/commercial" class="btn btn-outline">Commercial Supply</a>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <CTA
+    headline="Ready to Experience the Difference?"
+    description="Order your premium Western Ironbark firewood today. Whether you need a few bags or regular commercial supply, we have you covered."
+    primaryCTA={{ text: "View Pricing and Order", href: "/order" }}
+    secondaryCTA={{ text: `Call ${SITE_CONFIG.phone}`, href: SITE_CONFIG.phoneLink }}
+    variant="dark"
+  />
+</BaseLayout>

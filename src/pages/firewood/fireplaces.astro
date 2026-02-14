@@ -1,0 +1,253 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeader from "@/components/sections/PageHeader.astro";
+import CTA from "@/components/sections/CTA.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG, TESTIMONIALS } from "@/lib/constants";
+import { Flame, Clock, Wind, Sparkles } from "lucide-astro";
+---
+
+<BaseLayout
+  title="Firewood for Fireplaces Brisbane | Premium Ironbark | Quickfire Firewood"
+  description="Premium Western Ironbark firewood for fireplaces in Brisbane and Gold Coast. Long-burning, clean hardwood for indoor heating. Properly seasoned. Delivery available."
+  keywords={[
+    "fireplace firewood Brisbane",
+    "firewood for open fires",
+    "indoor firewood Gold Coast",
+    "ironbark fireplace wood",
+    "heating firewood Brisbane",
+  ]}
+>
+  <PageHeader
+    title="Firewood for Fireplaces"
+    subtitle="Long-burning Western Ironbark for warm winter evenings"
+    image="/images/split-firewood-pile.jpg"
+  />
+
+  <!-- Intro -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-8">
+        The Heart of Your Home
+      </h2>
+
+      <div class="prose prose-lg max-w-none text-base-content/80 text-center">
+        <p>
+          There is something deeply satisfying about a proper fire. The crackle of burning
+          wood, the dancing flames, the radiant warmth that no heater can quite replicate.
+          A quality fireplace fire transforms your living room into the heart of your home
+          on cold Brisbane and Gold Coast winter evenings.
+        </p>
+        <p>
+          But achieving that perfect fire starts with the right firewood. Our{" "}
+          <strong>Western Ironbark</strong> delivers the long burns, high heat, and clean
+          combustion that make fireplace heating a pleasure rather than a chore.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Why Ironbark -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Why Ironbark is Ideal for Fireplaces
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {[
+          {
+            icon: Clock,
+            title: "Extended Burn Times",
+            description:
+              "Ironbark is one of Australia's densest hardwoods. This exceptional density translates to burn times often two to three times longer than softer woods.",
+          },
+          {
+            icon: Flame,
+            title: "Superior Heat Output",
+            description:
+              "Dense wood burns hotter. Ironbark produces intense, radiant heat that fills your room efficiently, reducing the amount of wood you need.",
+          },
+          {
+            icon: Wind,
+            title: "Clean Burning",
+            description:
+              "Properly seasoned Ironbark burns cleanly, producing minimal smoke and significantly less creosote than green or poorly dried wood.",
+          },
+          {
+            icon: Sparkles,
+            title: "Beautiful Fires",
+            description:
+              "Beyond the practical benefits, Ironbark creates beautiful fires with strong, stable flames and a glowing coal bed that lasts.",
+          },
+        ].map(({ icon: Icon, title, description }) => (
+          <div class="bg-base-100 rounded-lg p-6 lg:p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <Icon class="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h3 class="font-heading text-xl font-semibold text-primary mb-2">{title}</h3>
+                <p class="text-base-content/70">{description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Properly Seasoned -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-6">
+            Properly Seasoned for Indoor Use
+          </h2>
+
+          <div class="prose prose-lg max-w-none text-base-content/80">
+            <p>
+              When burning wood indoors, moisture content matters enormously. Green or
+              inadequately dried wood:
+            </p>
+            <ul>
+              <li>Produces excessive smoke</li>
+              <li>Burns inefficiently</li>
+              <li>Creates dangerous creosote buildup</li>
+              <li>Smoulders rather than burns properly</li>
+            </ul>
+            <p>
+              Our Western Ironbark is seasoned for <strong>12 months or more</strong> before
+              sale. This extended drying period ensures the moisture content is low enough
+              for efficient, clean indoor burning. You will notice the difference from the
+              first fire.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <img
+            src="/images/firewood-pile-ironbark-logs.jpg"
+            alt="Seasoned Ironbark firewood"
+            class="rounded-lg shadow-lg w-full"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Split Sizes -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-8">
+        Split Sizes for Fireplaces
+      </h2>
+      <p class="text-lg text-base-content/70 text-center mb-8">
+        Different fireplaces suit different wood sizes. We offer <strong>custom splitting</strong>{" "}
+        to match your fireplace dimensions:
+      </p>
+
+      <div class="space-y-4">
+        <div class="bg-base-100 rounded-lg p-4">
+          <h4 class="font-semibold text-primary">Standard Fireplace Splits</h4>
+          <p class="text-sm text-base-content/70 mt-1">
+            Suits most open fireplaces and combustion heaters. Approximately 30-40cm length. Easy to stack and handle.
+          </p>
+        </div>
+
+        <div class="bg-base-100 rounded-lg p-4">
+          <h4 class="font-semibold text-primary">Large Splits</h4>
+          <p class="text-sm text-base-content/70 mt-1">
+            Ideal for larger open fireplaces. Extended burn times. Impressive visual presence.
+          </p>
+        </div>
+
+        <div class="bg-base-100 rounded-lg p-4">
+          <h4 class="font-semibold text-primary">Mixed Sizes</h4>
+          <p class="text-sm text-base-content/70 mt-1">
+            Combination of sizes for versatility. Smaller pieces for starting, larger for overnight burns.
+          </p>
+        </div>
+      </div>
+
+      <p class="text-center text-base-content/70 mt-6 italic">
+        Just tell us about your fireplace when you order, and we will prepare your firewood accordingly.
+      </p>
+    </Container>
+  </section>
+
+  <!-- Tips -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Getting the Most from Your Fireplace Firewood
+      </h2>
+
+      <div class="space-y-6">
+        {[
+          {
+            title: "Storage",
+            description:
+              "Store your Ironbark in a dry, well-ventilated area. A covered woodshed or garage is ideal. Keep wood off the ground on pallets or a rack to prevent moisture absorption.",
+          },
+          {
+            title: "Bring Wood Inside Early",
+            description:
+              "Move a few days' worth of firewood inside before you need it. Room-temperature wood ignites more easily than cold wood from outside storage.",
+          },
+          {
+            title: "Starting Your Fire",
+            description:
+              "Use newspaper or fire starters and kindling to establish a small fire, then add your Ironbark splits progressively. Once the fire is established, Ironbark will burn reliably for hours.",
+          },
+          {
+            title: "Overnight Burns",
+            description:
+              "For overnight burns, add large splits before bed and close down your fireplace's air intake. Ironbark's density makes it excellent for slow, overnight combustion.",
+          },
+        ].map((tip) => (
+          <div class="bg-base-200 rounded-lg p-6">
+            <h3 class="font-heading text-lg font-semibold text-primary mb-2">{tip.title}</h3>
+            <p class="text-base-content/70">{tip.description}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container size="narrow">
+      <div class="bg-base-100 rounded-lg p-8 text-center">
+        <blockquote class="text-lg italic text-base-content/80 mb-4">
+          "{TESTIMONIALS[1].quote}"
+        </blockquote>
+        <cite class="font-semibold text-primary">- {TESTIMONIALS[1].author}</cite>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <CTA
+    headline="Warm Up Your Winter"
+    description="Order premium Western Ironbark firewood for your fireplace. Properly seasoned, custom split to your specifications."
+    primaryCTA={{ text: "View Pricing and Order", href: "/order" }}
+    secondaryCTA={{ text: `Call ${SITE_CONFIG.phone}`, href: SITE_CONFIG.phoneLink }}
+    variant="dark"
+  />
+
+  <!-- Related -->
+  <section class="py-12 bg-base-100">
+    <Container>
+      <h3 class="font-heading text-xl font-semibold text-primary text-center mb-6">Related</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/order" class="btn btn-outline btn-sm">How to Order</a>
+        <a href="/about" class="btn btn-outline btn-sm">About Us</a>
+        <a href="/firewood/fire-pits" class="btn btn-outline btn-sm">Fire Pit Firewood</a>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

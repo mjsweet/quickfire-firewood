@@ -1,0 +1,45 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG } from "@/lib/constants";
+import { CheckCircle, Phone, ArrowLeft } from "lucide-astro";
+---
+
+<BaseLayout
+  title="Thank You | Quickfire Firewood"
+  description="Thank you for contacting Quickfire Firewood. We will be in touch shortly."
+>
+  <section class="min-h-[60vh] flex items-center py-16 lg:py-24">
+    <Container size="narrow">
+      <div class="text-center">
+        <div class="w-20 h-20 bg-success/20 rounded-full flex items-center justify-center mx-auto mb-6">
+          <CheckCircle class="w-10 h-10 text-success" />
+        </div>
+
+        <h1 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
+          Thank You
+        </h1>
+
+        <p class="text-lg text-base-content/70 mb-8 max-w-md mx-auto">
+          We have received your message and will be in touch within one business day.
+        </p>
+
+        <div class="bg-base-200 rounded-lg p-6 mb-8 max-w-md mx-auto">
+          <p class="text-base-content/70 mb-3">Need to speak with us urgently?</p>
+          <a
+            href={SITE_CONFIG.phoneLink}
+            class="btn btn-accent inline-flex items-center gap-2"
+          >
+            <Phone class="w-5 h-5" />
+            Call {SITE_CONFIG.phone}
+          </a>
+        </div>
+
+        <a href="/" class="btn btn-outline inline-flex items-center gap-2">
+          <ArrowLeft class="w-4 h-4" />
+          Return to Homepage
+        </a>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

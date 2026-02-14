@@ -1,0 +1,97 @@
+---
+interface Props {
+  type: "LocalBusiness" | "Organization" | "WebSite" | "Article" | "Product";
+  data?: Record<string, unknown>;
+}
+
+const { type, data = {} } = Astro.props;
+
+const baseOrganization = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Quickfire Firewood",
+  description:
+    "Family-owned supplier of premium Western Ironbark firewood in Brisbane and Gold Coast",
+  url: "https://quickfirewood.com.au",
+  telephone: "1300965529",
+  email: "orders@quickfirewood.com.au",
+  priceRange: "$$",
+  areaServed: [
+    { "@type": "City", name: "Brisbane" },
+    { "@type": "City", name: "Gold Coast" },
+    { "@type": "City", name: "Logan" },
+    { "@type": "City", name: "Ipswich" },
+    { "@type": "City", name: "Redland Bay" },
+    { "@type": "City", name: "Moreton Bay" },
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "QLD",
+    addressCountry: "AU",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -27.4698,
+    longitude: 153.0251,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "07:00",
+    closes: "17:00",
+  },
+  sameAs: [],
+};
+
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Quickfire Firewood",
+  url: "https://quickfirewood.com.au",
+  description:
+    "Premium Western Ironbark firewood delivered to Brisbane and Gold Coast",
+  publisher: {
+    "@type": "Organization",
+    name: "Quickfire Firewood",
+  },
+};
+
+let schema: Record<string, unknown>;
+
+switch (type) {
+  case "LocalBusiness":
+  case "Organization":
+    schema = { ...baseOrganization, ...data };
+    break;
+  case "WebSite":
+    schema = { ...webSiteSchema, ...data };
+    break;
+  case "Article":
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      publisher: {
+        "@type": "Organization",
+        name: "Quickfire Firewood",
+        url: "https://quickfirewood.com.au",
+      },
+      ...data,
+    };
+    break;
+  case "Product":
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      brand: {
+        "@type": "Brand",
+        name: "Quickfire Firewood",
+      },
+      ...data,
+    };
+    break;
+  default:
+    schema = { "@context": "https://schema.org", "@type": type, ...data };
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

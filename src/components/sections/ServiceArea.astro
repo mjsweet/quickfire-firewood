@@ -1,0 +1,70 @@
+---
+import { MapPin, Truck } from "lucide-astro";
+import Container from "@/components/ui/Container.astro";
+import { SERVICE_AREAS, SITE_CONFIG } from "@/lib/constants";
+
+interface Props {
+  title?: string;
+  areas?: readonly string[];
+  note?: string;
+}
+
+const {
+  title = "Serving Brisbane and the Gold Coast",
+  areas = SERVICE_AREAS,
+  note = `Not sure if we deliver to your area? Give us a call on ${SITE_CONFIG.phone} and we will let you know.`,
+} = Astro.props;
+---
+
+<section class="py-16 lg:py-24 bg-base-200">
+  <Container>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+            <Truck class="w-6 h-6 text-accent" />
+          </div>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary">
+            {title}
+          </h2>
+        </div>
+
+        <p class="text-lg text-base-content/70 mb-8">
+          We deliver premium Western Ironbark firewood throughout South East Queensland.
+          Prefer to collect? You are welcome to pick up from our yard and save on delivery.
+        </p>
+
+        <div class="grid grid-cols-2 gap-3">
+          {
+            areas.map((area) => (
+              <div class="flex items-center gap-2 text-base-content/80">
+                <MapPin class="w-4 h-4 text-accent flex-shrink-0" />
+                <span>{area}</span>
+              </div>
+            ))
+          }
+        </div>
+
+        {
+          note && (
+            <p class="mt-6 text-sm text-base-content/60 italic">{note}</p>
+          )
+        }
+      </div>
+
+      <div class="relative">
+        <img
+          src="/images/delivery-truck-isuzu-yard.jpg"
+          alt="Quickfire Firewood delivery truck"
+          class="rounded-lg shadow-lg w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="absolute -bottom-4 -right-4 bg-accent text-white p-4 rounded-lg shadow-lg">
+          <p class="font-heading text-lg font-semibold">Delivery or Pickup</p>
+          <p class="text-sm text-white/90">Your choice</p>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

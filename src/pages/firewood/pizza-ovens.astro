@@ -1,0 +1,238 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeader from "@/components/sections/PageHeader.astro";
+import CTA from "@/components/sections/CTA.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG, TESTIMONIALS } from "@/lib/constants";
+import { Flame, Wind, Clock, Sparkles } from "lucide-astro";
+---
+
+<BaseLayout
+  title="Firewood for Pizza Ovens Brisbane | Premium Ironbark | Quickfire Firewood"
+  description="Premium Western Ironbark firewood for pizza ovens in Brisbane and Gold Coast. High heat output, clean burn, perfect splits for wood-fired pizza. Delivery available."
+  keywords={[
+    "pizza oven firewood Brisbane",
+    "wood fired pizza wood",
+    "pizza oven wood Gold Coast",
+    "ironbark pizza oven",
+    "pizza wood delivery Brisbane",
+  ]}
+>
+  <PageHeader
+    title="Firewood for Pizza Ovens"
+    subtitle="Premium Western Ironbark for authentic wood-fired pizza"
+    image="/images/ironbark-logs-closeup.jpg"
+  />
+
+  <!-- Intro -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-8">
+        The Secret to Great Wood-Fired Pizza
+      </h2>
+
+      <div class="prose prose-lg max-w-none text-base-content/80 text-center">
+        <p>
+          Ask any experienced pizzaiolo and they will tell you: the wood matters as much as
+          the dough. Achieving those blistered, leopard-spotted crusts and perfectly cooked
+          toppings requires intense, consistent heat - and that requires the right firewood.
+        </p>
+        <p>
+          Our <strong>Western Ironbark</strong> is the choice of pizza enthusiasts and
+          professional pizza restaurants across Brisbane and the Gold Coast.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Why Ironbark for Pizza -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Why Ironbark Excels in Pizza Ovens
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {[
+          {
+            icon: Flame,
+            title: "Extreme Heat Output",
+            description:
+              "Pizza ovens need to reach 400-500 degrees Celsius. Ironbark's exceptional density produces intense heat that gets your oven up to temperature quickly - and keeps it there.",
+          },
+          {
+            icon: Wind,
+            title: "Clean, Smoke-Free Burning",
+            description:
+              "Our Ironbark is dried for 12 months or more, ensuring a clean burn that imparts just a subtle hint of wood-fired flavour without overpowering your toppings.",
+          },
+          {
+            icon: Sparkles,
+            title: "Excellent Coaling Properties",
+            description:
+              "Great pizza oven performance depends on a solid bed of coals. Ironbark creates dense, long-lasting coals that maintain even temperatures throughout your cooking session.",
+          },
+          {
+            icon: Clock,
+            title: "Long-Lasting Burns",
+            description:
+              "Ironbark's density means each log burns longer than lighter hardwoods. Less time feeding the fire means more time crafting pizzas.",
+          },
+        ].map(({ icon: Icon, title, description }) => (
+          <div class="bg-base-100 rounded-lg p-6 lg:p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <Icon class="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h3 class="font-heading text-xl font-semibold text-primary mb-2">{title}</h3>
+                <p class="text-base-content/70">{description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Perfect Splits -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-6">
+            Perfect Splits for Pizza Ovens
+          </h2>
+          <p class="text-lg text-base-content/70 mb-6">
+            Pizza ovens require specific wood sizes for optimal performance. We offer{" "}
+            <strong>custom splitting</strong> to ensure you receive firewood that fits your
+            oven perfectly.
+          </p>
+
+          <div class="space-y-4">
+            <div class="bg-base-200 rounded-lg p-4">
+              <h4 class="font-semibold text-primary">Small Splits (recommended for most pizza ovens)</h4>
+              <ul class="text-sm text-base-content/70 mt-2 space-y-1">
+                <li>Quick to ignite and reach temperature</li>
+                <li>Easy to add during cooking for temperature boosts</li>
+                <li>Ideal for smaller domestic pizza ovens</li>
+              </ul>
+            </div>
+
+            <div class="bg-base-200 rounded-lg p-4">
+              <h4 class="font-semibold text-primary">Medium Splits</h4>
+              <ul class="text-sm text-base-content/70 mt-2 space-y-1">
+                <li>Longer burn time for extended cooking sessions</li>
+                <li>Suitable for larger pizza ovens</li>
+                <li>Popular with commercial pizza kitchens</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="text-base-content/70 mt-6 italic">
+            Tell us about your oven when you order, and we will recommend the ideal split size
+            - and prepare your firewood to those specifications at no extra charge.
+          </p>
+        </div>
+
+        <div>
+          <img
+            src="/images/split-firewood-pile.jpg"
+            alt="Split firewood for pizza ovens"
+            class="rounded-lg shadow-lg w-full"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Tips -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Tips for Perfect Pizza Oven Fires
+      </h2>
+
+      <div class="space-y-6">
+        {[
+          {
+            title: "Starting Your Fire",
+            description:
+              "Build a small fire at the centre of your oven using kindling and small Ironbark splits. Once established, add progressively larger pieces until you have a strong fire.",
+          },
+          {
+            title: "Heating Your Oven",
+            description:
+              "Allow 1-2 hours for your oven to fully heat. The dome should change from black (sooty) to white/grey, indicating it has absorbed sufficient heat. Move your fire to the side when ready to cook.",
+          },
+          {
+            title: "Maintaining Temperature",
+            description:
+              "Add small splits as needed to maintain your fire. Ironbark's long burn time means you will add wood less frequently than with softer woods.",
+          },
+          {
+            title: "The Coal Bed",
+            description:
+              "As your Ironbark burns, it creates a bed of glowing coals. These provide the radiant heat that cooks your pizza base from below while the dome cooks from above.",
+          },
+        ].map((tip) => (
+          <div class="bg-base-100 rounded-lg p-6">
+            <h3 class="font-heading text-lg font-semibold text-primary mb-2">{tip.title}</h3>
+            <p class="text-base-content/70">{tip.description}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <div class="bg-base-200 rounded-lg p-8 text-center">
+        <blockquote class="text-lg italic text-base-content/80 mb-4">
+          "{TESTIMONIALS[0].quote}"
+        </blockquote>
+        <cite class="font-semibold text-primary">- {TESTIMONIALS[0].author}</cite>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Commercial link -->
+  <section class="py-12 bg-base-200">
+    <Container>
+      <div class="text-center">
+        <h3 class="font-heading text-xl font-semibold text-primary mb-4">
+          Trusted by Pizza Restaurants
+        </h3>
+        <p class="text-base-content/70 mb-4">
+          We supply Ironbark firewood to pizza restaurants and commercial kitchens throughout
+          South East Queensland.
+        </p>
+        <a href="/commercial" class="btn btn-outline">Commercial Firewood Supply</a>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <CTA
+    headline="Ready to Perfect Your Pizza?"
+    description="Order premium Western Ironbark, custom split for your pizza oven. Delivery available across Brisbane and the Gold Coast."
+    primaryCTA={{ text: "View Pricing and Order", href: "/order" }}
+    secondaryCTA={{ text: `Call ${SITE_CONFIG.phone}`, href: SITE_CONFIG.phoneLink }}
+    variant="dark"
+  />
+
+  <!-- Related -->
+  <section class="py-12 bg-base-100">
+    <Container>
+      <h3 class="font-heading text-xl font-semibold text-primary text-center mb-6">Related</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/commercial" class="btn btn-outline btn-sm">Commercial Supply</a>
+        <a href="/firewood/bbq" class="btn btn-outline btn-sm">Firewood for BBQ</a>
+        <a href="/order" class="btn btn-outline btn-sm">How to Order</a>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

@@ -1,0 +1,66 @@
+---
+import { ArrowRight } from "lucide-astro";
+import Container from "@/components/ui/Container.astro";
+
+interface Category {
+  title: string;
+  description: string;
+  href: string;
+  image: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  categories: Category[];
+}
+
+const {
+  title = "Quality Firewood for Every Fire",
+  subtitle = "Premium Western Ironbark, properly seasoned and custom split for your specific needs",
+  categories,
+} = Astro.props;
+---
+
+<section class="py-16 lg:py-24 bg-base-200">
+  <Container>
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
+        {title}
+      </h2>
+      {subtitle && <p class="text-lg text-base-content/70">{subtitle}</p>}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {
+        categories.map((category) => (
+          <a
+            href={category.href}
+            class="group card bg-base-100 shadow-md border border-base-300 card-hover overflow-hidden"
+          >
+            <figure class="relative h-48 overflow-hidden">
+              <img
+                src={category.image}
+                alt={category.title}
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <h3 class="absolute bottom-4 left-4 right-4 font-heading text-xl font-semibold text-white">
+                {category.title}
+              </h3>
+            </figure>
+            <div class="card-body">
+              <p class="text-base-content/70">{category.description}</p>
+              <div class="flex items-center text-accent font-medium mt-2 group-hover:gap-2 transition-all">
+                <span>Learn more</span>
+                <ArrowRight class="w-4 h-4 ml-1" />
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </Container>
+</section>

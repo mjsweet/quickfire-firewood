@@ -1,0 +1,50 @@
+---
+import { Quote } from "lucide-astro";
+import Container from "@/components/ui/Container.astro";
+
+interface Testimonial {
+  quote: string;
+  author: string;
+  role?: string;
+}
+
+interface Props {
+  title?: string;
+  testimonials: Testimonial[];
+}
+
+const { title = "What Our Customers Say", testimonials } = Astro.props;
+---
+
+<section class="py-16 lg:py-24 bg-base-100">
+  <Container>
+    <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+      {title}
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {
+        testimonials.map((testimonial) => (
+          <div class="bg-base-200 rounded-lg p-6 lg:p-8 relative">
+            <Quote class="w-10 h-10 text-accent/20 absolute top-4 right-4" />
+            <blockquote class="relative z-10">
+              <p class="text-base-content/80 italic mb-4 leading-relaxed">
+                "{testimonial.quote}"
+              </p>
+              <footer>
+                <cite class="not-italic font-semibold text-primary">
+                  {testimonial.author}
+                </cite>
+                {testimonial.role && (
+                  <span class="block text-sm text-base-content/60 mt-1">
+                    {testimonial.role}
+                  </span>
+                )}
+              </footer>
+            </blockquote>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</section>

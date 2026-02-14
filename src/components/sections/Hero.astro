@@ -1,0 +1,94 @@
+---
+import { Phone } from "lucide-astro";
+import Button from "@/components/ui/Button.astro";
+import { SITE_CONFIG } from "@/lib/constants";
+
+interface Props {
+  headline: string;
+  subheadline?: string;
+  image?: string;
+  primaryCTA?: {
+    text: string;
+    href: string;
+  };
+  secondaryCTA?: {
+    text: string;
+    href: string;
+  };
+}
+
+const {
+  headline,
+  subheadline,
+  image = "/images/fire-pit-evening-burning.jpg",
+  primaryCTA = { text: "Order Your Firewood", href: "/order" },
+  secondaryCTA,
+} = Astro.props;
+---
+
+<section class="relative min-h-[600px] lg:min-h-[700px] flex items-center">
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src={image}
+      alt="Premium Western Ironbark firewood burning"
+      class="w-full h-full object-cover"
+      fetchpriority="high"
+      loading="eager"
+    />
+    <div class="absolute inset-0 hero-gradient"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container mx-auto px-4 py-20 lg:py-32 relative z-10">
+    <div class="max-w-3xl">
+      <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+        {headline}
+      </h1>
+
+      {
+        subheadline && (
+          <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
+            {subheadline}
+          </p>
+        )
+      }
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <Button href={primaryCTA.href} variant="accent" size="lg">
+          {primaryCTA.text}
+        </Button>
+
+        {
+          secondaryCTA && (
+            <Button
+              href={secondaryCTA.href}
+              variant="outline"
+              size="lg"
+              class="border-white text-white hover:bg-white hover:text-primary"
+            >
+              <Phone class="w-5 h-5 mr-2" />
+              {secondaryCTA.text}
+            </Button>
+          )
+        }
+      </div>
+
+      <!-- Trust indicators -->
+      <div class="mt-12 flex flex-wrap gap-6 text-white/80 text-sm">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 bg-warning rounded-full"></span>
+          <span>Family-owned business</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 bg-warning rounded-full"></span>
+          <span>Seasoned 12+ months</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 bg-warning rounded-full"></span>
+          <span>Brisbane and Gold Coast delivery</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

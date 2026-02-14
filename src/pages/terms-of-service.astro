@@ -1,0 +1,320 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeader from "@/components/sections/PageHeader.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG } from "@/lib/constants";
+---
+
+<BaseLayout
+  title="Terms of Service | Quickfire Firewood"
+  description="Terms of Service for Quickfire Firewood. Read our terms and conditions for purchasing premium Western Ironbark firewood in Brisbane and Gold Coast."
+  keywords={["terms of service", "terms and conditions", "Quickfire Firewood terms", "firewood purchase terms"]}
+>
+  <PageHeader
+    title="Terms of Service"
+    subtitle="Terms and conditions for purchasing from Quickfire Firewood"
+    compact={true}
+  />
+
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <p class="text-base-content/60 mb-8">
+        <strong>Last updated:</strong> February 2026
+      </p>
+
+      <div class="prose prose-lg max-w-none">
+        <p>
+          These Terms of Service ("Terms") govern your purchase of firewood products and
+          services from Quickfire Firewood ("we", "us", or "our"). By placing an order with
+          us, you agree to be bound by these Terms.
+        </p>
+
+        <h2>1. About Us</h2>
+        <p>
+          Quickfire Firewood is a family-owned business supplying premium Western Ironbark
+          firewood in Brisbane, Gold Coast, and surrounding areas of South East Queensland.
+        </p>
+        <p>
+          <strong>Contact Details:</strong><br />
+          Phone: {SITE_CONFIG.phone}<br />
+          Email: {SITE_CONFIG.email}
+        </p>
+
+        <h2>2. Products</h2>
+
+        <h3>2.1 Product Description</h3>
+        <p>We supply premium Western Ironbark firewood. All firewood is:</p>
+        <ul>
+          <li>Sustainably sourced</li>
+          <li>Seasoned for a minimum of 12 months</li>
+          <li>Split to customer specifications where requested</li>
+        </ul>
+
+        <h3>2.2 Product Variations</h3>
+        <p>
+          As firewood is a natural product, there may be minor variations in:
+        </p>
+        <ul>
+          <li>Individual piece sizes within specified ranges</li>
+          <li>Exact weight of orders</li>
+          <li>Bark coverage and appearance</li>
+        </ul>
+        <p>These natural variations do not constitute defects.</p>
+
+        <h2>3. Ordering</h2>
+
+        <h3>3.1 Placing Orders</h3>
+        <p>Orders can be placed by:</p>
+        <ul>
+          <li>Phone: {SITE_CONFIG.phone}</li>
+          <li>Email: {SITE_CONFIG.email}</li>
+          <li>Website contact form</li>
+        </ul>
+
+        <h3>3.2 Order Confirmation</h3>
+        <p>An order is confirmed when we have:</p>
+        <ul>
+          <li>Agreed on quantity, pricing, and specifications</li>
+          <li>Confirmed delivery or pickup arrangements</li>
+          <li>Received payment or agreed payment terms</li>
+        </ul>
+
+        <h3>3.3 Order Accuracy</h3>
+        <p>
+          You are responsible for ensuring your order details are correct, including:
+        </p>
+        <ul>
+          <li>Quantity required</li>
+          <li>Split size preferences</li>
+          <li>Delivery address</li>
+          <li>Contact details</li>
+          <li>Access requirements for delivery</li>
+        </ul>
+
+        <h2>4. Pricing and Payment</h2>
+
+        <h3>4.1 Pricing</h3>
+        <p>Prices are quoted at the time of ordering and may vary based on:</p>
+        <ul>
+          <li>Quantity ordered</li>
+          <li>Delivery location</li>
+          <li>Current market conditions</li>
+        </ul>
+        <p>
+          All prices are quoted in Australian Dollars (AUD) and include GST where applicable.
+        </p>
+
+        <h3>4.2 Delivery Charges</h3>
+        <p>
+          Delivery charges are additional to product prices and depend on delivery location,
+          order size, and access requirements. Delivery charges will be confirmed at the
+          time of ordering.
+        </p>
+
+        <h3>4.3 Payment Methods</h3>
+        <p>We accept:</p>
+        <ul>
+          <li>Cash on delivery</li>
+          <li>Credit/debit card</li>
+          <li>Bank transfer</li>
+        </ul>
+
+        <h3>4.4 Payment Terms</h3>
+        <p>
+          For residential orders, payment is required at the time of delivery or pickup
+          unless otherwise arranged. For commercial accounts, payment terms may be
+          negotiated on application.
+        </p>
+
+        <h2>5. Delivery</h2>
+
+        <h3>5.1 Delivery Area</h3>
+        <p>
+          We deliver throughout Brisbane, Gold Coast, and surrounding areas of South East
+          Queensland. Delivery availability outside our standard service area can be
+          discussed on a case-by-case basis.
+        </p>
+
+        <h3>5.2 Delivery Timing</h3>
+        <p>
+          We will advise an estimated delivery date at the time of ordering. While we make
+          every effort to meet delivery timeframes, exact delivery times cannot be guaranteed.
+        </p>
+
+        <h3>5.3 Delivery Location</h3>
+        <p>
+          Firewood will be delivered to a suitable location on your property that is
+          accessible to our delivery vehicle and safe for unloading. We cannot deliver to
+          locations that require carrying firewood significant distances or up multiple
+          flights of stairs without prior arrangement.
+        </p>
+
+        <h3>5.4 Your Responsibilities</h3>
+        <p>You must ensure:</p>
+        <ul>
+          <li>Clear vehicle access to the delivery location</li>
+          <li>Someone is available to receive the delivery (unless otherwise arranged)</li>
+          <li>Any access codes or instructions are provided in advance</li>
+        </ul>
+
+        <h3>5.5 Stacking Service</h3>
+        <p>
+          Stacking services are available by request at additional cost. Please advise at
+          the time of ordering if you require stacking.
+        </p>
+
+        <h2>6. Pickup</h2>
+        <p>If you choose to collect your order:</p>
+        <ul>
+          <li>Contact us to arrange a pickup time</li>
+          <li>Bring appropriate transport for your order</li>
+          <li>Payment is required at time of pickup unless otherwise arranged</li>
+        </ul>
+        <p>
+          We will load your order onto your vehicle. You are responsible for securing the
+          load for transport.
+        </p>
+
+        <h2>7. Cancellations and Changes</h2>
+
+        <h3>7.1 Cancellation by Customer</h3>
+        <p>If you need to cancel an order:</p>
+        <ul>
+          <li>Contact us as soon as possible</li>
+          <li>Cancellations before dispatch incur no charge</li>
+          <li>Cancellations after dispatch may incur delivery charges</li>
+        </ul>
+
+        <h3>7.2 Changes to Orders</h3>
+        <p>
+          Changes to order quantity or specifications can be made prior to dispatch by
+          contacting us.
+        </p>
+
+        <h3>7.3 Cancellation by Us</h3>
+        <p>We reserve the right to cancel orders in circumstances including:</p>
+        <ul>
+          <li>Product unavailability</li>
+          <li>Delivery location inaccessible</li>
+          <li>Non-payment for prior orders</li>
+        </ul>
+
+        <h2>8. Quality and Returns</h2>
+
+        <h3>8.1 Quality Assurance</h3>
+        <p>
+          All firewood is inspected for quality before dispatch. Our firewood is properly
+          seasoned (12+ months), suitable for burning, and split as specified.
+        </p>
+
+        <h3>8.2 Issues with Orders</h3>
+        <p>If you have concerns about your order:</p>
+        <ul>
+          <li>Contact us within 7 days of delivery</li>
+          <li>Provide photos if relevant</li>
+          <li>We will investigate and resolve the issue</li>
+        </ul>
+
+        <h3>8.3 Resolution</h3>
+        <p>Where a genuine quality issue exists, we will at our discretion:</p>
+        <ul>
+          <li>Replace affected firewood</li>
+          <li>Provide a partial or full refund</li>
+          <li>Provide credit towards future orders</li>
+        </ul>
+
+        <h3>8.4 Australian Consumer Law</h3>
+        <p>
+          Nothing in these Terms excludes or limits consumer guarantees under the Australian
+          Consumer Law. You are entitled to a replacement or refund for a major failure and
+          compensation for any other reasonably foreseeable loss or damage.
+        </p>
+
+        <h2>9. Limitation of Liability</h2>
+        <p>To the extent permitted by law:</p>
+        <ul>
+          <li>Our liability is limited to the purchase price of the goods</li>
+          <li>We are not liable for indirect or consequential losses</li>
+          <li>
+            We are not responsible for damage caused by improper use or storage of firewood
+          </li>
+        </ul>
+
+        <h2>10. Use of Firewood</h2>
+        <p>You are responsible for:</p>
+        <ul>
+          <li>Safe storage of firewood</li>
+          <li>Safe use of firewood in appropriate appliances</li>
+          <li>Compliance with local fire regulations and restrictions</li>
+          <li>
+            Ensuring firewood is used in accordance with manufacturer instructions for your
+            appliance
+          </li>
+        </ul>
+
+        <h2>11. Fire Safety</h2>
+        <p>Firewood should only be burned:</p>
+        <ul>
+          <li>
+            In appropriate fireplaces, wood heaters, pizza ovens, fire pits, or BBQs
+          </li>
+          <li>In compliance with local fire regulations</li>
+          <li>With appropriate supervision</li>
+          <li>When total fire bans are not in effect</li>
+        </ul>
+        <p>
+          We are not responsible for damage or injury resulting from improper use of
+          firewood.
+        </p>
+
+        <h2>12. Intellectual Property</h2>
+        <p>
+          All content on our website, including text, images, and logos, is owned by
+          Quickfire Firewood and protected by intellectual property laws. You may not
+          reproduce, distribute, or use our content without permission.
+        </p>
+
+        <h2>13. Privacy</h2>
+        <p>
+          Your personal information is handled in accordance with our{" "}
+          <a href="/privacy-policy">Privacy Policy</a> and the Australian Privacy Act 1988.
+        </p>
+
+        <h2>14. Disputes</h2>
+        <p>If you have a dispute regarding your order:</p>
+        <ol>
+          <li>Contact us to discuss the issue</li>
+          <li>We will investigate and respond within a reasonable timeframe</li>
+          <li>If we cannot resolve the dispute directly, mediation may be pursued</li>
+        </ol>
+
+        <h2>15. Governing Law</h2>
+        <p>
+          These Terms are governed by the laws of Queensland, Australia. Any disputes will
+          be subject to the jurisdiction of Queensland courts.
+        </p>
+
+        <h2>16. Changes to Terms</h2>
+        <p>
+          We may update these Terms from time to time. Changes will be posted on this page
+          with an updated revision date. Continued use of our services after changes
+          constitutes acceptance of the updated Terms.
+        </p>
+
+        <h2>17. Contact Us</h2>
+        <p>For questions about these Terms, please contact us:</p>
+        <p>
+          <strong>Quickfire Firewood</strong><br />
+          Phone:{" "}
+          <a href={SITE_CONFIG.phoneLink}>{SITE_CONFIG.phone}</a><br />
+          Email:{" "}
+          <a href={SITE_CONFIG.emailLink}>{SITE_CONFIG.email}</a>
+        </p>
+
+        <hr />
+
+        <p class="text-base-content/60">Thank you for choosing Quickfire Firewood.</p>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

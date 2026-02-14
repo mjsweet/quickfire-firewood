@@ -1,0 +1,97 @@
+---
+import { Phone } from "lucide-astro";
+import Button from "@/components/ui/Button.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG } from "@/lib/constants";
+
+interface Props {
+  headline: string;
+  description?: string;
+  primaryCTA?: {
+    text: string;
+    href: string;
+  };
+  secondaryCTA?: {
+    text: string;
+    href: string;
+  };
+  variant?: "default" | "dark" | "accent";
+}
+
+const {
+  headline,
+  description,
+  primaryCTA = { text: "Order Your Firewood", href: "/order" },
+  secondaryCTA = { text: "Call " + SITE_CONFIG.phone, href: SITE_CONFIG.phoneLink },
+  variant = "dark",
+} = Astro.props;
+
+const bgClasses = {
+  default: "bg-base-200",
+  dark: "bg-primary text-primary-content",
+  accent: "fire-gradient text-white",
+};
+
+const buttonVariant = variant === "default" ? "accent" : "primary";
+const secondaryButtonClass =
+  variant === "default"
+    ? "border-primary text-primary hover:bg-primary hover:text-primary-content"
+    : "border-white text-white hover:bg-white hover:text-primary";
+---
+
+<section class={`py-16 lg:py-20 ${bgClasses[variant]}`}>
+  <Container>
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">
+        {headline}
+      </h2>
+
+      {
+        description && (
+          <p
+            class={`text-lg mb-8 ${variant === "default" ? "text-base-content/70" : "text-white/90"}`}
+          >
+            {description}
+          </p>
+        )
+      }
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        {
+          variant === "dark" ? (
+            <Button
+              href={primaryCTA.href}
+              variant="accent"
+              size="lg"
+            >
+              {primaryCTA.text}
+            </Button>
+          ) : (
+            <Button
+              href={primaryCTA.href}
+              variant={buttonVariant}
+              size="lg"
+              class={variant === "accent" ? "bg-white text-primary hover:bg-base-200" : ""}
+            >
+              {primaryCTA.text}
+            </Button>
+          )
+        }
+
+        {
+          secondaryCTA && (
+            <Button
+              href={secondaryCTA.href}
+              variant="outline"
+              size="lg"
+              class={secondaryButtonClass}
+            >
+              <Phone class="w-5 h-5 mr-2" />
+              {secondaryCTA.text}
+            </Button>
+          )
+        }
+      </div>
+    </div>
+  </Container>
+</section>

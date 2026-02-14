@@ -1,0 +1,279 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeader from "@/components/sections/PageHeader.astro";
+import CTA from "@/components/sections/CTA.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG, TESTIMONIALS } from "@/lib/constants";
+import { Flame, Clock, Wind, Sparkles } from "lucide-astro";
+---
+
+<BaseLayout
+  title="Firewood for BBQ and Smoking Brisbane | Premium Ironbark | Quickfire Firewood"
+  description="Premium Western Ironbark firewood for BBQ, smoking and grilling in Brisbane and Gold Coast. Perfect for offset smokers, chargrills and commercial BBQ. Delivery available."
+  keywords={[
+    "BBQ firewood Brisbane",
+    "smoking wood Gold Coast",
+    "grilling firewood",
+    "ironbark smoking wood",
+    "BBQ wood delivery Brisbane",
+    "offset smoker wood",
+  ]}
+>
+  <PageHeader
+    title="Firewood for BBQ and Smoking"
+    subtitle="Premium Western Ironbark for exceptional grilling and smoking"
+    image="/images/firewood-pile-ironbark-logs.jpg"
+  />
+
+  <!-- Intro -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-8">
+        Elevate Your BBQ Game
+      </h2>
+
+      <div class="prose prose-lg max-w-none text-base-content/80 text-center">
+        <p>
+          Every pitmaster knows that great BBQ starts with great wood. Whether you are running
+          an offset smoker, firing up a chargrill, or cooking over an open fire pit, the wood
+          you choose directly impacts the flavour, heat, and success of your cook.
+        </p>
+        <p>
+          Our <strong>Western Ironbark</strong> is trusted by BBQ enthusiasts and professional
+          pitmasters across Brisbane and the Gold Coast.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Why Pitmasters Choose Ironbark -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Why Pitmasters Choose Ironbark
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {[
+          {
+            icon: Flame,
+            title: "Exceptional Heat Control",
+            description:
+              "Ironbark's density means it burns steadily and predictably, making it easier to maintain the 110-135 degree Celsius sweet spot for low-and-slow smoking, or the intense heat needed for perfect searing.",
+          },
+          {
+            icon: Sparkles,
+            title: "Superior Coaling",
+            description:
+              "Unlike softer woods that burn away quickly, Ironbark creates a substantial bed of long-lasting coals that sears steaks perfectly and maintains steady temperatures for brisket and ribs.",
+          },
+          {
+            icon: Wind,
+            title: "Clean Smoke Flavour",
+            description:
+              "Properly seasoned Ironbark produces clean, mild smoke that adds subtle depth to your BBQ without bitterness. It imparts a mild, slightly sweet smoke that complements beef, pork, lamb, and poultry.",
+          },
+          {
+            icon: Clock,
+            title: "Long Burns for Long Cooks",
+            description:
+              "Smoking a brisket can take 10-16 hours. Ironbark's extended burn time means fewer wood additions and more consistent temperatures throughout your cook.",
+          },
+        ].map(({ icon: Icon, title, description }) => (
+          <div class="bg-base-100 rounded-lg p-6 lg:p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <Icon class="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h3 class="font-heading text-xl font-semibold text-primary mb-2">{title}</h3>
+                <p class="text-base-content/70">{description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Applications -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Applications for Ironbark BBQ Wood
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          {
+            title: "Offset Smokers",
+            description:
+              "Ironbark is ideal for offset smokers where the wood is your primary fuel source. Consistent burn rate makes temperature management straightforward.",
+          },
+          {
+            title: "Chargrills",
+            description:
+              "Professional chargrills thrive on Ironbark. The dense coals produce intense heat for restaurant-quality searing.",
+          },
+          {
+            title: "Kettle BBQs",
+            description:
+              "Use Ironbark chunks or small splits alongside charcoal for enhanced smoke flavour and heat.",
+          },
+          {
+            title: "Fire Pit Cooking",
+            description:
+              "Cooking over an open fire pit? Ironbark provides the stable coal bed and consistent heat you need.",
+          },
+        ].map((app) => (
+          <div class="bg-base-200 rounded-lg p-6 text-center">
+            <h3 class="font-heading text-lg font-semibold text-primary mb-2">{app.title}</h3>
+            <p class="text-base-content/70 text-sm">{app.description}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Sizing -->
+  <section class="py-16 lg:py-24 bg-base-200">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-6">
+            Sizing for BBQ Use
+          </h2>
+          <p class="text-lg text-base-content/70 mb-6">
+            Different BBQ setups require different wood sizes. We offer{" "}
+            <strong>custom splitting</strong> to match your equipment:
+          </p>
+
+          <div class="space-y-4">
+            <div class="bg-base-100 rounded-lg p-4">
+              <h4 class="font-semibold text-primary">Small Splits / Chunks</h4>
+              <p class="text-sm text-base-content/70 mt-1">
+                Perfect for kettle BBQs, adding smoke to charcoal cooks, smaller offset smokers.
+              </p>
+            </div>
+
+            <div class="bg-base-100 rounded-lg p-4">
+              <h4 class="font-semibold text-primary">Medium Splits</h4>
+              <p class="text-sm text-base-content/70 mt-1">
+                Ideal for standard offset smokers, fire pit cooking, most commercial applications.
+              </p>
+            </div>
+
+            <div class="bg-base-100 rounded-lg p-4">
+              <h4 class="font-semibold text-primary">Large Splits</h4>
+              <p class="text-sm text-base-content/70 mt-1">
+                Extended overnight cooks, larger offset smokers, maximum efficiency.
+              </p>
+            </div>
+          </div>
+
+          <p class="text-base-content/70 mt-6 italic">
+            Tell us about your setup when you order, and we will prepare your firewood to suit.
+          </p>
+        </div>
+
+        <div>
+          <img
+            src="/images/split-firewood-pile.jpg"
+            alt="Split firewood for BBQ"
+            class="rounded-lg shadow-lg w-full"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Tips -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-12">
+        Tips for Better BBQ with Ironbark
+      </h2>
+
+      <div class="space-y-6">
+        {[
+          {
+            title: "Fire Management",
+            description:
+              "Start with a smaller fire than you think you need. Ironbark burns hot, and it is easier to add wood than to cool down an overheated smoker.",
+          },
+          {
+            title: "Let It Burn Down",
+            description:
+              "For smoking, let your Ironbark establish a good coal bed before adding your meat. You want clean blue smoke, not billowing white smoke.",
+          },
+          {
+            title: "Wood Storage",
+            description:
+              "Keep your BBQ wood dry and well-ventilated. Moisture is the enemy of clean smoke.",
+          },
+          {
+            title: "Stick Size Matters",
+            description:
+              "For offset smokers, splits should fit comfortably in your firebox with room for airflow. Too large and they will smoulder; too small and you will be adding wood constantly.",
+          },
+        ].map((tip) => (
+          <div class="bg-base-200 rounded-lg p-6">
+            <h3 class="font-heading text-lg font-semibold text-primary mb-2">{tip.title}</h3>
+            <p class="text-base-content/70">{tip.description}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Commercial -->
+  <section class="py-12 bg-base-200">
+    <Container>
+      <div class="text-center">
+        <h3 class="font-heading text-xl font-semibold text-primary mb-4">
+          Commercial BBQ Supply
+        </h3>
+        <p class="text-base-content/70 mb-4 max-w-2xl mx-auto">
+          We supply Ironbark firewood to BBQ restaurants, smokehouses, and commercial kitchens
+          throughout South East Queensland. Consistent quality, reliable delivery, bulk pricing.
+        </p>
+        <a href="/commercial" class="btn btn-outline">Commercial Firewood Supply</a>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <div class="bg-base-200 rounded-lg p-8 text-center">
+        <blockquote class="text-lg italic text-base-content/80 mb-4">
+          "{TESTIMONIALS[0].quote}"
+        </blockquote>
+        <cite class="font-semibold text-primary">- {TESTIMONIALS[0].author}</cite>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <CTA
+    headline="Ready to Up Your BBQ Game?"
+    description="Order premium Western Ironbark for smoking and grilling. Custom split to your specifications, delivered across Brisbane and the Gold Coast."
+    primaryCTA={{ text: "View Pricing and Order", href: "/order" }}
+    secondaryCTA={{ text: `Call ${SITE_CONFIG.phone}`, href: SITE_CONFIG.phoneLink }}
+    variant="dark"
+  />
+
+  <!-- Related -->
+  <section class="py-12 bg-base-100">
+    <Container>
+      <h3 class="font-heading text-xl font-semibold text-primary text-center mb-6">Related</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/commercial" class="btn btn-outline btn-sm">Commercial Supply</a>
+        <a href="/firewood/pizza-ovens" class="btn btn-outline btn-sm">Pizza Oven Firewood</a>
+        <a href="/order" class="btn btn-outline btn-sm">How to Order</a>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

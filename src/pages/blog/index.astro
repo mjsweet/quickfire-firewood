@@ -1,0 +1,59 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeader from "@/components/sections/PageHeader.astro";
+import CTA from "@/components/sections/CTA.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG } from "@/lib/constants";
+---
+
+<BaseLayout
+  title="Blog | Quickfire Firewood"
+  description="Tips, guides and news about firewood, wood-fired cooking, and outdoor entertaining from Quickfire Firewood."
+  keywords={["firewood blog", "wood fired cooking tips", "fire pit guides", "firewood storage"]}
+>
+  <PageHeader
+    title="Blog"
+    subtitle="Tips, guides and firewood wisdom"
+    image="/images/firewood-pile-ironbark-logs.jpg"
+  />
+
+  <section class="py-16 lg:py-24 bg-base-100">
+    <Container size="narrow">
+      <div class="text-center">
+        <div class="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+
+        <h2 class="font-heading text-2xl font-bold text-primary mb-4">
+          Coming Soon
+        </h2>
+
+        <p class="text-lg text-base-content/70 mb-8 max-w-md mx-auto">
+          We are working on helpful articles about firewood selection, storage tips,
+          wood-fired cooking techniques, and more. Check back soon.
+        </p>
+
+        <p class="text-base-content/60 mb-8">
+          In the meantime, feel free to call us with any questions - we love talking about
+          firewood.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/contact" class="btn btn-accent">Contact Us</a>
+          <a href="/" class="btn btn-outline">Back to Home</a>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <CTA
+    headline="Ready to Order Your Firewood?"
+    description="Premium Western Ironbark, properly seasoned and custom split. Delivery across Brisbane and the Gold Coast."
+    primaryCTA={{ text: "Order Now", href: "/order" }}
+    secondaryCTA={{ text: `Call ${SITE_CONFIG.phone}`, href: SITE_CONFIG.phoneLink }}
+    variant="dark"
+  />
+</BaseLayout>
