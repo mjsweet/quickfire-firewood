@@ -1,0 +1,194 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CTA from "@/components/sections/CTA.astro";
+import Container from "@/components/ui/Container.astro";
+import { SITE_CONFIG } from "@/lib/constants";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { ArrowLeft, Calendar, User, Tag } from "lucide-astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+function formatDate(date: Date): string {
+  return new Date(date).toLocaleDateString("en-AU", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
+// Get related posts (same tags, excluding current)
+const allPosts = await getCollection("blog", ({ data }) => data.draft !== true);
+const relatedPosts = allPosts
+  .filter((p) => p.slug !== post.slug)
+  .filter((p) => p.data.tags?.some((tag) => post.data.tags?.includes(tag)))
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title={`${post.data.title} | Quickfire Firewood Blog`}
+  description={post.data.description}
+  keywords={post.data.tags || []}
+  image={post.data.image}
+>
+  <!-- Hero with featured image -->
+  {post.data.image && (
+    <div class="relative h-64 md:h-96 overflow-hidden">
+      <img
+        src={post.data.image}
+        alt={post.data.title}
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+    </div>
+  )}
+
+  <article class="py-12 lg:py-16">
+    <Container size="narrow">
+      <!-- Back link -->
+      <a
+        href="/blog"
+        class="inline-flex items-center gap-2 text-accent hover:underline mb-8"
+      >
+        <ArrowLeft class="w-4 h-4" />
+        Back to Blog
+      </a>
+
+      <!-- Article header -->
+      <header class="mb-8">
+        <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
+          {post.data.title}
+        </h1>
+
+        <div class="flex flex-wrap items-center gap-4 text-base-content/70">
+          <div class="flex items-center gap-2">
+            <Calendar class="w-4 h-4" />
+            <time datetime={post.data.publishDate.toISOString()}>
+              {formatDate(post.data.publishDate)}
+            </time>
+          </div>
+
+          {post.data.author && (
+            <div class="flex items-center gap-2">
+              <User class="w-4 h-4" />
+              <span>{post.data.author}</span>
+            </div>
+          )}
+        </div>
+
+        {post.data.tags && post.data.tags.length > 0 && (
+          <div class="flex flex-wrap items-center gap-2 mt-4">
+            <Tag class="w-4 h-4 text-base-content/50" />
+            {post.data.tags.map((tag) => (
+              <span class="badge badge-ghost">{tag}</span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <!-- Article content -->
+      <div class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-primary prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-strong:text-primary prose-img:rounded-lg">
+        <Content />
+      </div>
+
+      <!-- Author box -->
+      <div class="mt-12 p-6 bg-base-200 rounded-lg">
+        <div class="flex items-start gap-4">
+          <img
+            src="/images/logo-transparent.png"
+            alt="Quickfire Firewood"
+            class="w-16 h-16 rounded-full bg-white p-2"
+          />
+          <div>
+            <h3 class="font-heading text-lg font-semibold text-primary">
+              Quickfire Firewood
+            </h3>
+            <p class="text-base-content/70 mt-1">
+              Family-owned suppliers of premium Western Ironbark firewood, serving Brisbane
+              and the Gold Coast. We love sharing our knowledge about firewood and wood-fired
+              cooking.
+            </p>
+            <a href="/about" class="text-accent hover:underline mt-2 inline-block">
+              Learn more about us
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA inline -->
+      <div class="mt-12 p-8 bg-accent/10 rounded-lg text-center">
+        <h3 class="font-heading text-2xl font-bold text-primary mb-2">
+          Need Quality Firewood?
+        </h3>
+        <p class="text-base-content/70 mb-4">
+          We supply premium Western Ironbark firewood for pizza ovens, fireplaces, BBQs, and fire pits.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/order" class="btn btn-accent">Order Your Firewood</a>
+          <a href={SITE_CONFIG.phoneLink} class="btn btn-outline">
+            Call {SITE_CONFIG.phone}
+          </a>
+        </div>
+      </div>
+    </Container>
+  </article>
+
+  <!-- Related posts -->
+  {relatedPosts.length > 0 && (
+    <section class="py-12 bg-base-200">
+      <Container>
+        <h2 class="font-heading text-2xl font-bold text-primary mb-8 text-center">
+          Related Articles
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {relatedPosts.map((relatedPost) => (
+            <a
+              href={`/blog/${relatedPost.slug}`}
+              class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow overflow-hidden group"
+            >
+              {relatedPost.data.image && (
+                <figure class="aspect-video overflow-hidden">
+                  <img
+                    src={relatedPost.data.image}
+                    alt={relatedPost.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </figure>
+              )}
+              <div class="card-body">
+                <h3 class="card-title font-heading text-lg text-primary group-hover:text-accent transition-colors">
+                  {relatedPost.data.title}
+                </h3>
+                <p class="text-sm text-base-content/60">
+                  {formatDate(relatedPost.data.publishDate)}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </Container>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <CTA
+    headline="Ready to Order Your Firewood?"
+    description="Premium Western Ironbark, properly seasoned and custom split. Delivery across Brisbane and the Gold Coast."
+    primaryCTA={{ text: "Order Now", href: "/order" }}
+    secondaryCTA={{ text: `Call ${SITE_CONFIG.phone}`, href: SITE_CONFIG.phoneLink }}
+    variant="dark"
+  />
+</BaseLayout>

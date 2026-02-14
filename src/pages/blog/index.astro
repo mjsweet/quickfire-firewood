@@ -4,6 +4,25 @@ import PageHeader from "@/components/sections/PageHeader.astro";
 import CTA from "@/components/sections/CTA.astro";
 import Container from "@/components/ui/Container.astro";
 import { SITE_CONFIG } from "@/lib/constants";
+import { getCollection } from "astro:content";
+import { ArrowRight } from "lucide-astro";
+
+// Get all blog posts, sorted by publish date (newest first)
+const allPosts = await getCollection("blog", ({ data }) => {
+  return data.draft !== true;
+});
+
+const sortedPosts = allPosts.sort(
+  (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+);
+
+function formatDate(date: Date): string {
+  return new Date(date).toLocaleDateString("en-AU", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 ---
 
 <BaseLayout
@@ -18,33 +37,69 @@ import { SITE_CONFIG } from "@/lib/constants";
   />
 
   <section class="py-16 lg:py-24 bg-base-100">
-    <Container size="narrow">
-      <div class="text-center">
-        <div class="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-          <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-          </svg>
+    <Container>
+      {sortedPosts.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sortedPosts.map((post) => (
+            <article class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow overflow-hidden group">
+              {post.data.image && (
+                <figure class="aspect-video overflow-hidden">
+                  <img
+                    src={post.data.image}
+                    alt={post.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </figure>
+              )}
+              <div class="card-body">
+                <time class="text-sm text-base-content/60" datetime={post.data.publishDate.toISOString()}>
+                  {formatDate(post.data.publishDate)}
+                </time>
+                <h2 class="card-title font-heading text-xl text-primary group-hover:text-accent transition-colors">
+                  <a href={`/blog/${post.slug}`} class="hover:underline">
+                    {post.data.title}
+                  </a>
+                </h2>
+                <p class="text-base-content/70 line-clamp-3">
+                  {post.data.description}
+                </p>
+                {post.data.tags && (
+                  <div class="flex flex-wrap gap-2 mt-2">
+                    {post.data.tags.slice(0, 3).map((tag) => (
+                      <span class="badge badge-ghost badge-sm">{tag}</span>
+                    ))}
+                  </div>
+                )}
+                <div class="card-actions justify-end mt-4">
+                  <a
+                    href={`/blog/${post.slug}`}
+                    class="text-accent font-medium flex items-center gap-1 hover:gap-2 transition-all"
+                  >
+                    Read more
+                    <ArrowRight class="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
-
-        <h2 class="font-heading text-2xl font-bold text-primary mb-4">
-          Coming Soon
-        </h2>
-
-        <p class="text-lg text-base-content/70 mb-8 max-w-md mx-auto">
-          We are working on helpful articles about firewood selection, storage tips,
-          wood-fired cooking techniques, and more. Check back soon.
-        </p>
-
-        <p class="text-base-content/60 mb-8">
-          In the meantime, feel free to call us with any questions - we love talking about
-          firewood.
-        </p>
-
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="/contact" class="btn btn-accent">Contact Us</a>
-          <a href="/" class="btn btn-outline">Back to Home</a>
+      ) : (
+        <div class="text-center">
+          <div class="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+          </div>
+          <h2 class="font-heading text-2xl font-bold text-primary mb-4">
+            Coming Soon
+          </h2>
+          <p class="text-lg text-base-content/70 mb-8 max-w-md mx-auto">
+            We are working on helpful articles about firewood selection, storage tips,
+            wood-fired cooking techniques, and more. Check back soon.
+          </p>
         </div>
-      </div>
+      )}
     </Container>
   </section>
 
