@@ -88,15 +88,17 @@ function isActive(href: string): boolean {
         }
       </ul>
 
-      <!-- Centred logo -->
-      <a href="/" class="flex-shrink-0">
-        <img
-          src="/images/logo-transparent.png"
-          alt="Quickfire Firewood"
-          class="h-16 lg:h-20 w-auto"
-          width="80"
-          height="80"
-        />
+      <!-- Centred logo with white circle extending below header -->
+      <a href="/" class="flex-shrink-0 relative z-10">
+        <div class="bg-white rounded-full p-2 lg:p-4 shadow-lg relative top-1 lg:top-4">
+          <img
+            src="/images/logo-transparent.png"
+            alt="Quickfire Firewood"
+            class="h-16 lg:h-28 w-auto"
+            width="112"
+            height="112"
+          />
+        </div>
       </a>
 
       <!-- Desktop right navigation -->
